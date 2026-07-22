@@ -98,9 +98,7 @@ h1, h2, h3, h4, h5, h6 { font-family: "Pretendard", "Heebo", sans-serif; }
 .fbullets b { color: #333; font-weight: 700; }
 .metric { color: #4c5ce0; font-weight: 700; }
 .plinks a { font-weight: 700; }
-.aim_shot { width: 100%; border: 1px solid #e6e6f2; border-radius: 8px; box-shadow: 0 14px 34px rgba(132, 144, 255, .12); }
-.aim_shot + .aim_shot { margin-top: 16px; }
+.aim_feature .fbullets { max-width: 820px; }
 @media (max-width: 991px) {
-  .aim_feature .col-lg-5 { margin-top: 22px; }
   .banner_btn.btn_resume { margin-left: 8px; }
 }
