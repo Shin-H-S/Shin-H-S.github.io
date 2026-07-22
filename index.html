@@ -122,6 +122,13 @@
     flex-direction: column;
     gap: 30px;
   }
+  .photo {
+    width: 112px;
+    border-radius: 8px;
+    border: 1px solid var(--hairline);
+    display: block;
+    margin-bottom: 18px;
+  }
   .name {
     margin: 0;
     font-size: clamp(2rem, 4vw, 2.35rem);
@@ -391,6 +398,7 @@
 
   <aside class="rail">
     <header>
+      <img class="photo" src="./photo.jpg" alt="신현수 증명사진" width="354" height="472">
       <h1 class="name">신현수</h1>
       <p class="role">AI · 백엔드 개발자</p>
       <p class="loc">만들고, 측정하고, 운영합니다</p>
