@@ -9,8 +9,30 @@ body, p { font-family: "Pretendard", "Roboto", sans-serif; word-break: keep-all;
 h1, h2, h3, h4, h5, h6 { font-family: "Pretendard", "Heebo", sans-serif; }
 .navbar-brand.brand-text { font: 700 22px/1.2 "Pretendard", "Heebo", sans-serif; color: #fff; letter-spacing: .5px; }
 .navbar_fixed .navbar-brand.brand-text, .main_menu.navbar_fixed .brand-text { color: #222; }
-.skill_main .skill_item h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-.skill_main .skill_item p { margin-bottom: 18px; line-height: 1.7; }
+.skill_main .skill_item { margin-bottom: 22px; }
+.skill_main .skill_item:last-child { margin-bottom: 0; }
+.skill_main .skill_item h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  border-left: 3px solid #8490ff;
+  line-height: 1.4;
+}
+.stack-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.stack-tags span {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #555;
+  background: #f9f9ff;
+  border: 1px solid #e6e6f2;
+  border-radius: 4px;
+  transition: border-color .2s ease, color .2s ease;
+}
+.stack-tags span:hover { border-color: #8490ff; color: #222; }
 .feature_item .plinks a { font-weight: 700; }
 .f_widget p a { color: inherit; text-decoration: underline; }
 .banner_content h2 { text-transform: none; }
