@@ -9,9 +9,11 @@ body, p { font-family: "Pretendard", "Roboto", sans-serif; word-break: keep-all;
 h1, h2, h3, h4, h5, h6 { font-family: "Pretendard", "Heebo", sans-serif; }
 .navbar-brand.brand-text { font: 700 22px/1.2 "Pretendard", "Heebo", sans-serif; color: #fff; letter-spacing: .5px; }
 .navbar_fixed .navbar-brand.brand-text, .main_menu.navbar_fixed .brand-text { color: #222; }
-.skill_main .skill_item { margin-bottom: 22px; }
-.skill_main .skill_item:last-child { margin-bottom: 0; }
-.skill_main .skill_item h4 {
+.tools_expert .skill_main .skill_item { margin-bottom: 22px; }
+.tools_expert .skill_main .skill_item:last-child { margin-bottom: 0; }
+.tools_expert .skill_main .skill_item h4 {
+  text-align: left;
+  font-family: "Pretendard", "Heebo", sans-serif;
   font-size: 15px;
   font-weight: 700;
   color: #222;
