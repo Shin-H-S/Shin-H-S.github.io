@@ -7,7 +7,7 @@
 <meta name="description" content="AI 품질 모니터링 서비스 AIM을 만들고 운영하는 개발자 신현수의 이력서 겸 포트폴리오. 모든 수치는 실측 기록입니다.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="신현수 — 이력서 · 포트폴리오">
-<meta property="og:description" content="AI 품질 모니터링 서비스 AIM(qaaimsync.com)을 만들고 운영합니다. 1%의 정확도 향상과 1초의 지연 단축에 집착합니다.">
+<meta property="og:description" content="AI 품질 모니터링 서비스 AIM(qaaimsync.com)을 만들고 운영하는 AI 엔지니어. 1%의 정확도 향상과 1ms의 지연 시간 단축에 집착합니다.">
 <meta property="og:url" content="https://shin-h-s.github.io/">
 <meta property="og:locale" content="ko_KR">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='38' fill='none' stroke='%231D4ED8' stroke-width='12'/><circle cx='50' cy='50' r='12' fill='%231D4ED8'/></svg>">
@@ -453,6 +453,7 @@
         <a href="#aim">대표 프로젝트</a>
         <a href="#projects">팀 프로젝트</a>
         <a href="#skills">기술</a>
+        <a href="#career">경력 · 교육</a>
         <a href="#log">운영 기록</a>
         <a href="#contact">연락</a>
       </div>
@@ -463,8 +464,8 @@
   <header class="hero container" id="top">
     <p class="hero-eyebrow">만들고, 측정하고, 운영합니다</p>
     <h1 class="hero-name">신현수</h1>
-    <p class="hero-slogan">1%의 정확도 향상과 1초의 지연 단축에 집착합니다.</p>
-    <p class="hero-sub">AI 품질 모니터링 서비스 AIM을 혼자 만들어 자체 도메인에서 운영 중인 AI · 백엔드 개발자입니다.</p>
+    <p class="hero-slogan">1%의 정확도 향상과 1ms의 지연 시간 단축에 집착합니다.</p>
+    <p class="hero-sub">AI 품질 모니터링 서비스 AIM을 혼자 만들어 자체 도메인에서 운영 중인 AI 엔지니어입니다.</p>
     <div class="ctas no-print">
       <a class="btn" href="#aim">대표 프로젝트 보기</a>
       <a class="btn ghost" href="https://github.com/Shin-H-S" target="_blank" rel="noopener">GitHub ↗</a>
@@ -483,13 +484,16 @@
           <img class="photo" src="./photo.jpg" alt="신현수 증명사진" width="354" height="472">
           <div>
             <p class="lead">
-              QA 없이 배포하는 1인 개발자와 초기 팀을 위한 AI 품질 모니터링 서비스 <strong>AIM</strong>을
-              혼자 만들어 자체 도메인에서 운영하고 있습니다. 설계부터 브라우저 자동화, LLM 통합,
-              CI 연동, 단일 VM 운영까지 서비스 수명주기 전체를 완주하는 것을 좋아합니다.
+              가설-지표-평가의 개선 플라이휠을 돌리며 한계 성능을 쥐어짜는 과정에 희열을 느낍니다.
+              Advanced RAG 파이프라인(<strong>Bidcoin</strong>)에서는 LLM-as-Judge 평가를 11회 반복하며
+              답변 정확도를 0.52에서 0.78로 끌어올렸고, 생성형 AI 서비스(<strong>Go_Gachi</strong>)에서는
+              프로덕션 실측 로그를 근거로 응답 페이로드를 99.97% 줄였습니다.
             </p>
             <p class="lead dim">
-              팀에서는 RAG 파이프라인과 객체 탐지 모델을 직접 다뤘고, 결과는 항상 평가 지표로
-              증명하려 합니다. 이 페이지의 모든 숫자는 실측입니다.
+              이 집착은 4년간 육군 특수임무대 팀장으로 돌발 상황을 통제하고 대응 매뉴얼을 고쳐 쓰며
+              몸에 익힌 리스크 관리에서 비롯됐습니다. 지금은 AI 품질 모니터링 서비스 <strong>AIM</strong>을
+              혼자 만들어 실서비스로 운영하며 수명주기 전체를 완주하고 있습니다.
+              이 페이지의 모든 숫자는 실측입니다.
             </p>
           </div>
         </div>
@@ -517,13 +521,14 @@
           </div>
           <p class="p-one">“이번 배포, 이전보다 정말 나아졌을까?” — 배포 후 웹서비스의 품질 변화를 근거 기반으로 판단하는 AI 품질 모니터링 플랫폼</p>
           <ul class="blist">
-            <li>가용성 · SSL · Lighthouse · Playwright 시나리오를 한 번에 실행하는 통합 검사 파이프라인을 설계하고 구현했습니다 (FastAPI + Celery + PostgreSQL).</li>
-            <li>6개 카테고리 결정론적 스코어링과 베이스라인 대비 회귀 감지를 만들고, 수집된 근거만 사용하는 Claude 기반 AI 진단 리포트를 붙였습니다.</li>
+            <li>점수·등급과 장애 판정은 결정론적 코드로 계산하고, LLM은 수집된 근거를 서술하는 역할로 제한해 판정 결과의 재현성을 확보했습니다. LLM 호출 실패 시 규칙 기반 리포트로 자동 전환하는 폴백 경로도 갖췄습니다.</li>
+            <li>가용성 · SSL · Lighthouse · Playwright 시나리오를 한 번에 검사하는 Celery · Redis 비동기 파이프라인을 구축하고, 작업 완료 순서와 무관하게 점수 · 회귀 비교 · 리포트가 일관되게 수렴하도록 정합성을 설계했습니다.</li>
             <li>시작 3주 차에 자체 도메인 HTTPS 실서비스에 도달했습니다 — 커밋 <span class="metric">269</span> · 머지 PR <span class="metric">115</span> · 테스트 <span class="metric">460개</span>(백엔드 337 + 웹 123, 2026.07 실측).</li>
+            <li>일일 오프박스 백업과 복원 리허설로 검증한 복구 런북을 갖추고, 운영 중 GCP → Oracle Cloud 이전을 수행하며 백업·복원 경로를 실전 재검증했습니다.</li>
             <li>CI 배포 훅과 Slack/Discord webhook 알림을 연동하고, AIM 자신을 첫 프로젝트로 등록해 60분 주기로 스스로를 모니터링합니다.</li>
           </ul>
           <div class="tags">
-            <span>Python</span><span>FastAPI</span><span>Celery</span><span>PostgreSQL</span><span>Redis</span><span>Next.js</span><span>TypeScript</span><span>Playwright</span><span>Claude API</span><span>Docker</span><span>Oracle Cloud</span>
+            <span>Python</span><span>FastAPI</span><span>Celery</span><span>Redis</span><span>PostgreSQL</span><span>Playwright</span><span>Next.js</span><span>TypeScript</span><span>Docker</span><span>Oracle Cloud</span>
           </div>
         </article>
       </div>
@@ -540,40 +545,40 @@
 
           <article class="pcard">
             <h3>Bidcoin</h3>
-            <p class="meta">팀 BidMind · 5인 · RAG 코어 담당</p>
-            <p class="p-one">공공조달 RFP 문서를 검색하고 질의응답하는 RAG 서비스</p>
+            <p class="meta">팀 BidMind · 5인 · RAG Integration &amp; Model Optimization Lead</p>
+            <p class="p-one">공공조달 RFP 문서 검색 품질을 끌어올린 Advanced RAG 파이프라인</p>
             <dl class="p-rows">
-              <div class="prow"><dt>역할</dt><dd>embedding · retriever · reranker · RAG API의 v2~v4 전 버전을 직접 구현했습니다.</dd></div>
-              <div class="prow"><dt>기여</dt><dd>v4 최적화에서 HyDE 제거, Self-RAG freepass, 스레드 병렬화로 파이프라인을 단순화하고 응답을 앞당겼습니다.</dd></div>
-              <div class="prow"><dt>성과</dt><dd>47문항 12카테고리 LLM-as-Judge 평가에서 correctness <span class="metric">0.425 → 0.782 (+84%)</span>, context recall <span class="metric">+48.6%</span>.</dd></div>
+              <div class="prow"><dt>역할</dt><dd>검색·생성 파트를 End-to-End로 통합하는 RAG 파이프라인을 설계하고, Cross-Encoder(bge-reranker-v2-m3) 재정렬과 Self-RAG 검증 단계를 직접 구현했습니다.</dd></div>
+              <div class="prow"><dt>기여</dt><dd>HyDE 제거 · Self-RAG 프리패스 · 검색 병렬화와 FAISS/Chroma A/B 벤치마크(1.8배 빠른 구성 채택)로 질의당 LLM 호출 2회 절감, 응답 지연 <span class="metric">1~2초 단축</span> — 품질 지표 하락 없음.</dd></div>
+              <div class="prow"><dt>성과</dt><dd>LLM-as-Judge 평가(RAGAS 호환 6지표 × 47문항)를 11회 반복하며 답변 정확도 <span class="metric">0.52 → 0.78 (+50%)</span> · 검색 재현율 <span class="metric">0.51 → 0.76 (+49%)</span> · 평가셋 기준 환각 0건, faithfulness 평균 0.97.</dd></div>
             </dl>
-            <div class="tags"><span>Python</span><span>RAG</span><span>Embedding · Reranker</span><span>LLM-as-Judge</span></div>
+            <div class="tags"><span>Advanced RAG</span><span>FAISS · BM25 (Kiwi)</span><span>Cross-Encoder</span><span>Self-RAG</span><span>OpenAI API</span><span>LLM-as-Judge</span></div>
             <a class="plink no-print" href="https://github.com/BidMind/Bidcoin" target="_blank" rel="noopener">GitHub ↗</a>
           </article>
 
           <article class="pcard">
             <h3>Go_Gachi</h3>
-            <p class="meta">팀 프로젝트 · 팀장 · 백엔드 파이프라인</p>
-            <p class="p-one">소상공인을 위한 AI 광고 크리에이티브 생성 서비스</p>
+            <p class="meta">5인 팀 · Team Leader &amp; AI Pipeline Engineer</p>
+            <p class="p-one">소상공인을 위한 생성형 AI 광고 이미지 자동 생성 서비스 MVP</p>
             <dl class="p-rows">
-              <div class="prow"><dt>역할</dt><dd>팀장으로서 AI 이미지 생성 파이프라인과 타이밍 로그 계측을 직접 구현했습니다.</dd></div>
-              <div class="prow"><dt>기여</dt><dd>생성 응답을 base64 인라인에서 imageUrl 방식으로 전환해 응답 페이로드를 <span class="metric">2.12MB → 0.3KB (−99.9%)</span>로 줄이고, 폴링 주기 조정으로 중복 요청을 제거했습니다.</dd></div>
-              <div class="prow"><dt>성과</dt><dd><span class="metric">199건</span> 실측 기반 레이턴시 리포트 작성, 프로젝트 전체 pytest <span class="metric">399개</span> 통과.</dd></div>
+              <div class="prow"><dt>역할</dt><dd>팀장으로서 생성형 AI 이미지 파이프라인 설계와 구간별 타이밍 계측을 직접 구현했습니다.</dd></div>
+              <div class="prow"><dt>기여</dt><dd>프로덕션 요청 <span class="metric">199건</span>의 구간별 타이밍 실측(평균 62~79초, 최대 241초)을 근거로 비동기 Job 아키텍처를 도입해, 최대 4분의 AI 추론을 UI 블로킹 없이 처리했습니다.</dd></div>
+              <div class="prow"><dt>성과</dt><dd>base64 인라인 응답을 R2 저장 URL 참조로 전환해 페이로드 <span class="metric">99.97% 감소 (2.1MB → 0.5KB)</span>, 폴링 최적화로 상태 조회 트래픽 <span class="metric">40% 이상 감소</span>.</dd></div>
             </dl>
-            <div class="tags"><span>Python</span><span>FastAPI</span><span>Streamlit</span><span>이미지 생성 API</span></div>
+            <div class="tags"><span>Python</span><span>FastAPI</span><span>OpenAI API</span><span>Cloudflare R2</span><span>Docker</span></div>
             <a class="plink no-print" href="https://github.com/Shin-H-S/Go_Gachi" target="_blank" rel="noopener">GitHub ↗</a>
           </article>
 
           <article class="pcard">
             <h3>알약 객체 탐지 (YOLOv11)</h3>
-            <p class="meta">5인 팀 · 공동 실험 리드</p>
+            <p class="meta">5인 팀 · Model Architect &amp; Experimentation Lead (공동)</p>
             <p class="p-one">경구약 이미지에서 알약을 탐지하는 Kaggle 경진 프로젝트</p>
             <dl class="p-rows">
-              <div class="prow"><dt>역할</dt><dd>Model Architect &amp; Experimentation Lead(공동) — YOLOv11 nano~large 실험 매트릭스를 설계하고 운영했습니다.</dd></div>
+              <div class="prow"><dt>역할</dt><dd>YOLOv11 nano~large 실험 매트릭스를 설계·운영하고, 실험 로그와 평가 지표를 문서화해 재현 가능한 실험 환경을 표준화했습니다.</dd></div>
               <div class="prow"><dt>기여</dt><dd>copy-paste 데이터 증강 파이프라인을 직접 구현했고, 증강 조합 실험으로 mAP50-95 <span class="metric">+1.4~1.5%p</span> 향상을 확인했습니다.</dd></div>
-              <div class="prow"><dt>성과</dt><dd>Kaggle Public <span class="metric">0.95581</span> (mAP@[0.75:0.95]).</dd></div>
+              <div class="prow"><dt>성과</dt><dd>Kaggle Public <span class="metric">0.95581</span> (mAP@[0.75:0.95]) · 추론 <span class="metric">57ms/장</span> (GTX 1650 SUPER 실측).</dd></div>
             </dl>
-            <div class="tags"><span>YOLOv11</span><span>Ultralytics</span><span>데이터 증강</span><span>Kaggle</span></div>
+            <div class="tags"><span>YOLOv11</span><span>PyTorch</span><span>OpenCV</span><span>Optuna</span><span>데이터 증강</span><span>Kaggle</span></div>
             <a class="plink no-print" href="https://github.com/Shin-H-S/Code_it-Basic-Project" target="_blank" rel="noopener">GitHub ↗</a>
           </article>
 
@@ -589,24 +594,51 @@
         </div>
         <div class="skills-box">
           <div class="skill">
-            <span class="k">언어</span>
-            <div class="tags"><span>Python</span><span>TypeScript</span><span>SQL</span></div>
+            <span class="k">LLM · Advanced RAG</span>
+            <div class="tags"><span>LangChain</span><span>LlamaIndex</span><span>FAISS</span><span>BM25 (Kiwi)</span><span>Chroma</span><span>Cross-Encoder</span><span>Self-RAG</span></div>
           </div>
           <div class="skill">
-            <span class="k">백엔드</span>
-            <div class="tags"><span>FastAPI</span><span>SQLAlchemy</span><span>Celery</span><span>PostgreSQL</span><span>Redis</span></div>
+            <span class="k">AI Serving · Backend</span>
+            <div class="tags"><span>Python</span><span>FastAPI</span><span>Celery</span><span>Redis</span><span>PostgreSQL</span><span>RESTful API</span><span>Docker</span></div>
           </div>
           <div class="skill">
-            <span class="k">AI · 데이터</span>
-            <div class="tags"><span>Claude API</span><span>RAG</span><span>YOLO · Ultralytics</span><span>LLM-as-Judge 평가</span></div>
+            <span class="k">Core ML · Data</span>
+            <div class="tags"><span>PyTorch</span><span>YOLOv11</span><span>OpenCV</span><span>Optuna</span><span>LLM-as-Judge 평가</span></div>
           </div>
           <div class="skill">
             <span class="k">프런트엔드</span>
-            <div class="tags"><span>Next.js (App Router)</span><span>React</span><span>Tailwind CSS</span></div>
+            <div class="tags"><span>Next.js (App Router)</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span></div>
           </div>
           <div class="skill">
             <span class="k">인프라 · 품질</span>
-            <div class="tags"><span>Docker Compose</span><span>Caddy</span><span>Oracle Cloud (ARM)</span><span>GitHub Actions</span><span>pytest · Vitest</span><span>ruff · mypy</span></div>
+            <div class="tags"><span>Oracle Cloud (ARM)</span><span>GCP</span><span>Cloudflare R2</span><span>GitHub Actions</span><span>Caddy</span><span>pytest · Vitest</span><span>ruff · mypy</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="career" class="sec">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow">Career &amp; Education</span>
+          <h2 class="sec-title">경력 · 교육</h2>
+        </div>
+        <div class="log-box">
+          <div class="mrow">
+            <span class="when">2025.11 — 2026.06</span>
+            <div><b>코드잇 스프린트 부트캠프 — AI Engineer 수료</b><span class="sub">텍스트 청킹 · 의미론적 검색 · 비동기 처리의 원리를 딥다이브해 E2E 아키텍처 설계 역량 체득, 가설-지표-평가 중심 실험 체화</span></div>
+          </div>
+          <div class="mrow">
+            <span class="when">2020.06 — 2024.05</span>
+            <div><b>육군 군사경찰 · 특수임무대 팀장 (하사)</b><span class="sub">상황별 대응 프로세스 설계와 표준 매뉴얼(SOP) 수립 주도 · 출동 소요 시간 10분 → 5분 단축</span></div>
+          </div>
+          <div class="mrow">
+            <span class="when">2016.03 — 2018.02</span>
+            <div><b>한국영상대학교 영상정보부사관과 졸업</b></div>
+          </div>
+          <div class="mrow">
+            <span class="when">2016.09</span>
+            <div><b>초경량비행장치 조종자</b><span class="sub">한국교통안전공단</span></div>
           </div>
         </div>
       </div>
