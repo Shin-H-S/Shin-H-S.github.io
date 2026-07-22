@@ -12,6 +12,10 @@
         <meta property="og:description" content="AI 품질 모니터링 서비스 AIM(qaaimsync.com)을 만들고 운영하는 AI 엔지니어. 1%의 정확도 향상과 1ms의 지연 시간 단축에 집착합니다.">
         <meta property="og:url" content="https://shin-h-s.github.io/">
         <meta property="og:locale" content="ko_KR">
+        <meta property="og:image" content="https://shin-h-s.github.io/img/og-image.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta name="twitter:card" content="summary_large_image">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -24,7 +28,7 @@
         <!-- main css -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
-        <link rel="stylesheet" href="css/custom.css?v=3">
+        <link rel="stylesheet" href="css/custom.css?v=4">
     </head>
     <body>
         
@@ -48,6 +52,7 @@
 								<li class="nav-item"><a class="nav-link" href="#projects">프로젝트</a></li>
 								<li class="nav-item"><a class="nav-link" href="#career">경력 · 교육</a></li>
 								<li class="nav-item"><a class="nav-link" href="#contact">연락</a></li>
+								<li class="nav-item"><a class="nav-link" href="resume.pdf" download="신현수_이력서.pdf">이력서 PDF</a></li>
 							</ul>
 							</div> 
 					</div>
@@ -71,7 +76,7 @@
 								<h5>만들고, 측정하고, 운영합니다</h5>
 								<h2>신현수</h2>
 								<p>1%의 정확도 향상과 1ms의 지연 시간 단축에 집착합니다. AI 품질 모니터링 서비스 AIM을 혼자 만들어 자체 도메인에서 운영 중인 AI 엔지니어입니다.</p>
-								<a class="banner_btn" href="#projects">프로젝트 보기</a>
+								<a class="banner_btn" href="#projects">프로젝트 보기</a> <a class="banner_btn btn_resume" href="resume.pdf" download="신현수_이력서.pdf">이력서 PDF</a>
 							</div>
 						</div>
 					</div>
@@ -89,25 +94,32 @@
         					<h4>소개</h4>
         					<p>1%의 정확도 향상과 1ms의 지연 시간 단축에 집착하는 AI 엔지니어입니다. 가설을 세우고, 지표로 측정하고, 평가로 증명하는 개선 플라이휠이 제가 일하는 방식입니다. RAG 파이프라인의 답변 품질을 평가 반복으로 끌어올리고, 생성형 AI 서비스의 병목을 실측 로그로 찾아 해결하며, 만든 서비스는 배포와 운영까지 직접 책임집니다. 4년간 육군 특수임무대 팀장으로 익힌 리스크 관리가 이 집착의 뿌리입니다. 이 페이지의 모든 숫자는 실측입니다.</p>
         					<div class="row">
-        						<div class="col-md-4">
+        						<div class="col-md-3">
         							<div class="wel_item">
         								<i class="lnr lnr-code"></i>
         								<h4>269</h4>
         								<p>AIM 커밋</p>
         							</div>
         						</div>
-        						<div class="col-md-4">
+        						<div class="col-md-3">
         							<div class="wel_item">
         								<i class="lnr lnr-cloud-sync"></i>
         								<h4>115</h4>
         								<p>머지된 PR</p>
         							</div>
         						</div>
-        						<div class="col-md-4">
+        						<div class="col-md-3">
         							<div class="wel_item">
         								<i class="lnr lnr-checkmark-circle"></i>
         								<h4>460</h4>
         								<p>테스트 통과</p>
+        							</div>
+        						</div>
+        						<div class="col-md-3">
+        							<div class="wel_item">
+        								<i class="lnr lnr-laptop"></i>
+        								<h4>3주</h4>
+        								<p>실서비스 도달</p>
         							</div>
         						</div>
         					</div>
@@ -153,36 +165,61 @@
         			<p>역할과 기여를 구분해 적었습니다 — 모든 수치는 실측 기록입니다.</p>
         		</div>
         		<div class="feature_inner row">
-        			<div class="col-lg-6 col-md-6">
-        				<div class="feature_item">
-        					<i class="flaticon-city"></i>
-        					<h4>AIM — AI Quality Monitor</h4>
-        					<p>배포 후 웹서비스 품질 변화를 근거 기반으로 판단하는 AI 모니터링 플랫폼. 1인 풀사이클로 시작 3주 차에 실서비스에 도달했고, 점수·장애 판정은 결정론적 코드로 계산하며 LLM은 근거 서술로 제한했습니다(호출 실패 시 규칙 기반 폴백). 지금도 AIM이 AIM 자신을 60분 주기로 모니터링합니다.</p>
-        					<p class="plinks"><a href="https://qaaimsync.com" target="_blank" rel="noopener">서비스 ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Shin-H-S/AIM" target="_blank" rel="noopener">GitHub ↗</a></p>
+        			<div class="col-12">
+        				<div class="feature_item aim_feature">
+        					<div class="row">
+        						<div class="col-lg-7">
+        							<img class="aim_shot img-fluid" src="img/shots/aim-dashboard.png" alt="AIM 대시보드 — 프로젝트 품질 점수와 추이">
+        							<img class="aim_shot img-fluid" src="img/shots/aim-check-result.png" alt="AIM 검사 결과 — 카테고리 점수와 AI 진단 리포트">
+        						</div>
+        						<div class="col-lg-5">
+        							<h4>AIM — AI Quality Monitor</h4>
+        							<p class="fmeta">2026.06 — 현재 · 1인 풀사이클 개발·운영 · 실서비스</p>
+        							<ul class="fbullets">
+        								<li>점수·장애 판정은 <b>결정론적 코드</b>로 계산하고 LLM은 근거 서술로 제한해 재현성 확보 — 호출 실패 시 규칙 기반 리포트로 자동 폴백</li>
+        								<li>가용성 · 웹 성능 · 사용자 흐름을 한 번에 검사하는 Celery · Redis 비동기 파이프라인, 완료 순서와 무관한 정합성 설계</li>
+        								<li>시작 <span class="metric">3주</span> 차 실서비스 도달 — 커밋 <span class="metric">269</span> · 머지 PR <span class="metric">115</span> · 테스트 <span class="metric">460</span></li>
+        								<li>일일 백업·복원 리허설 런북, GCP → Oracle Cloud 이전으로 실전 재검증 — AIM이 AIM 자신을 60분 주기로 모니터링</li>
+        							</ul>
+        							<p class="plinks"><a href="https://qaaimsync.com" target="_blank" rel="noopener">서비스 ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Shin-H-S/AIM" target="_blank" rel="noopener">GitHub ↗</a></p>
+        						</div>
+        					</div>
         				</div>
         			</div>
-        			<div class="col-lg-6 col-md-6">
-        				<div class="feature_item">
-        					<i class="flaticon-sketch"></i>
+        			<div class="col-lg-4 col-md-6">
+        				<div class="feature_item team_card">
         					<h4>Bidcoin — Advanced RAG</h4>
-        					<p>공공조달 RFP 문서 검색·질의응답 파이프라인 (5인 팀 · RAG Integration &amp; Model Optimization Lead). Cross-Encoder(bge-reranker-v2-m3) 재정렬과 Self-RAG 검증을 직접 구현하고, LLM-as-Judge 평가(6지표 × 47문항)를 11회 반복해 답변 정확도 0.52 → 0.78 (+50%), 검색 재현율 0.51 → 0.76 (+49%)을 달성했습니다.</p>
-        					<p class="plinks"><a href="https://github.com/BidMind/Bidcoin" target="_blank" rel="noopener">GitHub ↗</a></p>
+        					<p class="fmeta">5인 팀 · RAG Integration &amp; Model Optimization Lead</p>
+        					<ul class="fbullets">
+        						<li>Cross-Encoder(bge-reranker-v2-m3) 재정렬과 Self-RAG 검증을 직접 구현한 E2E 파이프라인</li>
+        						<li>LLM-as-Judge 6지표 × 47문항 × 11회 반복 — 답변 정확도 <span class="metric">0.52 → 0.78 (+50%)</span> · 검색 재현율 <span class="metric">+49%</span></li>
+        						<li>HyDE 제거 · 프리패스 · 병렬화로 질의당 LLM 호출 2회 절감, 지연 <span class="metric">1~2초 단축</span></li>
+        					</ul>
+        					<p class="plinks"><a href="https://github.com/BidMind/Bidcoin" target="_blank" rel="noopener">GitHub ↗</a> &nbsp;·&nbsp; <a href="https://github.com/BidMind/Bidcoin/tree/main/src/results" target="_blank" rel="noopener">평가 결과 ↗</a></p>
         				</div>
         			</div>
-        			<div class="col-lg-6 col-md-6">
-        				<div class="feature_item">
-        					<i class="flaticon-skyline"></i>
-        					<h4>Go_Gachi — 생성형 AI 광고 이미지 MVP</h4>
-        					<p>소상공인용 AI 광고 이미지 자동 생성 서비스 (5인 팀 · Team Leader &amp; AI Pipeline Engineer). 프로덕션 199건 구간별 타이밍 실측을 근거로 비동기 Job 아키텍처를 도입해 최대 4분의 추론을 UI 블로킹 없이 처리하고, base64 응답을 R2 URL 참조로 전환해 페이로드를 99.97% 줄였습니다 (2.1MB → 0.5KB).</p>
-        					<p class="plinks"><a href="https://github.com/Shin-H-S/Go_Gachi" target="_blank" rel="noopener">GitHub ↗</a></p>
+        			<div class="col-lg-4 col-md-6">
+        				<div class="feature_item team_card">
+        					<h4>Go_Gachi — 생성형 AI 광고 이미지</h4>
+        					<p class="fmeta">5인 팀 · Team Leader &amp; AI Pipeline Engineer</p>
+        					<ul class="fbullets">
+        						<li>프로덕션 <span class="metric">199건</span> 구간별 타이밍 실측을 근거로 비동기 Job 아키텍처 도입 — 최대 4분 추론을 UI 블로킹 없이 처리</li>
+        						<li>base64 응답을 R2 URL 참조로 전환, 페이로드 <span class="metric">99.97% 감소 (2.1MB → 0.5KB)</span></li>
+        						<li>폴링 최적화로 상태 조회 트래픽 <span class="metric">40% 이상 감소</span></li>
+        					</ul>
+        					<p class="plinks"><a href="https://github.com/Shin-H-S/Go_Gachi" target="_blank" rel="noopener">GitHub ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Shin-H-S/Go_Gachi/tree/main/docs" target="_blank" rel="noopener">실측 리포트 ↗</a></p>
         				</div>
         			</div>
-        			<div class="col-lg-6 col-md-6">
-        				<div class="feature_item">
-        					<i class="flaticon-city"></i>
+        			<div class="col-lg-4 col-md-6">
+        				<div class="feature_item team_card">
         					<h4>알약 객체 탐지 — YOLOv11</h4>
-        					<p>경구약 이미지 객체 탐지 Kaggle 경진 (5인 팀 · Model Architect &amp; Experimentation Lead 공동). copy-paste 데이터 증강 파이프라인을 직접 구현해 증강 조합으로 mAP50-95 +1.4~1.5%p 향상을 확인했고, Kaggle Public 0.95581 (mAP@[0.75:0.95]) · 추론 57ms/장(GTX 1650 SUPER 실측)을 기록했습니다.</p>
-        					<p class="plinks"><a href="https://github.com/Shin-H-S/Code_it-Basic-Project" target="_blank" rel="noopener">GitHub ↗</a></p>
+        					<p class="fmeta">5인 팀 · Model Architect &amp; Experimentation Lead (공동)</p>
+        					<ul class="fbullets">
+        						<li>copy-paste 데이터 증강 파이프라인 직접 구현 — 증강 조합으로 mAP50-95 <span class="metric">+1.4~1.5%p</span></li>
+        						<li>Kaggle Public <span class="metric">0.95581</span> (mAP@[0.75:0.95])</li>
+        						<li>추론 <span class="metric">57ms/장</span> (GTX 1650 SUPER 실측)</li>
+        					</ul>
+        					<p class="plinks"><a href="https://github.com/Shin-H-S/Code_it-Basic-Project" target="_blank" rel="noopener">GitHub ↗</a> &nbsp;·&nbsp; <a href="https://www.kaggle.com/competitions/ai-07-object-detection" target="_blank" rel="noopener">Kaggle ↗</a></p>
         				</div>
         			</div>
         		</div>
@@ -250,7 +287,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         					<p>이메일 한 통이면 충분합니다.</p>
         					<p><a href="mailto:shyunsu3@gmail.com">shyunsu3@gmail.com</a><br>
         					<a href="https://github.com/Shin-H-S" target="_blank" rel="noopener">github.com/Shin-H-S</a><br>
-        					<a href="https://qaaimsync.com" target="_blank" rel="noopener">qaaimsync.com (AIM)</a></p>
+        					<a href="https://qaaimsync.com" target="_blank" rel="noopener">qaaimsync.com (AIM)</a><br>
+        					<a href="resume.pdf" download="신현수_이력서.pdf">이력서 PDF 다운로드</a></p>
         				</aside>
         			</div>
         			<div class="col-lg-2">

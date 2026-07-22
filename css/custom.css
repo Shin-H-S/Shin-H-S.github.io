@@ -81,3 +81,26 @@ h1, h2, h3, h4, h5, h6 { font-family: "Pretendard", "Heebo", sans-serif; }
 .timeline_date { font-size: 13px; font-weight: 700; color: #8490ff; margin-bottom: 6px; }
 .timeline_item h4 { font-size: 17px; font-weight: 700; color: #222; margin-bottom: 8px; }
 .timeline_item p { margin-bottom: 0; line-height: 1.75; color: #777; }
+.banner_btn.btn_resume {
+  margin-left: 12px;
+  background-image: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .55);
+}
+.banner_btn.btn_resume:hover { border-color: #8490ff; color: #8490ff; }
+.feature_area .feature_item { text-align: left; height: 100%; border: 1px solid #ececf6; border-radius: 10px; padding: 30px 26px; }
+.feature_inner [class*="col-"] { margin-bottom: 30px; }
+.aim_feature { padding: 34px; }
+.fmeta { font-size: 13px; color: #999; margin: 6px 0 14px; }
+.fbullets { list-style: none; margin: 0 0 14px; padding: 0; }
+.fbullets li { position: relative; padding-left: 18px; margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #666; }
+.fbullets li::before { content: ""; position: absolute; left: 0; top: 10px; width: 7px; height: 7px; border-radius: 50%; background: #8490ff; opacity: .6; }
+.fbullets b { color: #333; font-weight: 700; }
+.metric { color: #4c5ce0; font-weight: 700; }
+.plinks a { font-weight: 700; }
+.aim_shot { width: 100%; border: 1px solid #e6e6f2; border-radius: 8px; box-shadow: 0 14px 34px rgba(132, 144, 255, .12); }
+.aim_shot + .aim_shot { margin-top: 16px; }
+@media (max-width: 991px) {
+  .aim_feature .col-lg-5 { margin-top: 22px; }
+  .banner_btn.btn_resume { margin-left: 8px; }
+}
