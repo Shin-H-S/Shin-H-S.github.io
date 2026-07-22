@@ -1,724 +1,292 @@
 <!doctype html>
 <html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>신현수 — 이력서 · 포트폴리오</title>
-<meta name="description" content="AI 품질 모니터링 서비스 AIM을 만들고 운영하는 개발자 신현수의 이력서 겸 포트폴리오. 모든 수치는 실측 기록입니다.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="신현수 — 이력서 · 포트폴리오">
-<meta property="og:description" content="AI 품질 모니터링 서비스 AIM(qaaimsync.com)을 만들고 운영하는 AI 엔지니어. 1%의 정확도 향상과 1ms의 지연 시간 단축에 집착합니다.">
-<meta property="og:url" content="https://shin-h-s.github.io/">
-<meta property="og:locale" content="ko_KR">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='38' fill='none' stroke='%231D4ED8' stroke-width='12'/><circle cx='50' cy='50' r='12' fill='%231D4ED8'/></svg>">
-</head>
-<body>
-<style>
-  /* Pretendard 가변 폰트 서브셋 내장 — 설치 여부와 관계없이 동일하게 보입니다 */
-  @font-face {
-    font-family: "Pretendard Embedded";
-    src: url(./fonts/pretendard-subset.woff2) format("woff2");
-    font-weight: 45 930;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  :root {
-    --bg: #FFFFFF;
-    --ink: #14161A;
-    --muted: #4E5157;
-    --faint: #73767D;
-    --accent: #1D4ED8;
-    --hairline: #E7E8EA;
-    --tag-bg: #FFFFFF;
-    --tag-ink: #3F4249;
-    --card: #FFFFFF;
-    --band: #F7F8FA;
-    --font-body: "Pretendard Embedded", "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, -apple-system, sans-serif;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #101114;
-      --ink: #F0F1F3;
-      --muted: #A2A5AC;
-      --faint: #7B7E85;
-      --accent: #85ACF0;
-      --hairline: #26272B;
-      --tag-bg: #15161A;
-      --tag-ink: #B7B9C0;
-      --card: #131418;
-      --band: #15161A;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #101114;
-    --ink: #F0F1F3;
-    --muted: #A2A5AC;
-    --faint: #7B7E85;
-    --accent: #85ACF0;
-    --hairline: #26272B;
-    --tag-bg: #15161A;
-    --tag-ink: #B7B9C0;
-    --card: #131418;
-    --band: #15161A;
-  }
-  :root[data-theme="light"] {
-    --bg: #FFFFFF;
-    --ink: #14161A;
-    --muted: #4E5157;
-    --faint: #73767D;
-    --accent: #1D4ED8;
-    --hairline: #E7E8EA;
-    --tag-bg: #FFFFFF;
-    --tag-ink: #3F4249;
-    --card: #FFFFFF;
-    --band: #F7F8FA;
-  }
-
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--font-body);
-    line-height: 1.65;
-    word-break: keep-all;
-    overflow-wrap: break-word;
-    -webkit-font-smoothing: antialiased;
-  }
-  ::selection { background: color-mix(in srgb, var(--accent) 24%, transparent); }
-  a { color: inherit; }
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    border-radius: 2px;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    html { scroll-behavior: smooth; }
-    .hero > * { animation: rise .6s cubic-bezier(.2, .7, .3, 1) both; }
-    .hero > *:nth-child(2) { animation-delay: .06s; }
-    .hero > *:nth-child(3) { animation-delay: .12s; }
-    .hero > *:nth-child(4) { animation-delay: .18s; }
-    .pcard, .aim-card { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-  @keyframes rise {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: none; }
-  }
-
-  .container { max-width: 1120px; margin: 0 auto; padding-inline: clamp(28px, 6vw, 48px); }
-  .narrow { max-width: 860px; }
-
-  /* ── 상단 내비게이션 ── */
-  .topnav {
-    position: sticky;
-    top: 0;
-    z-index: 40;
-    background: color-mix(in srgb, var(--bg) 90%, transparent);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .topnav-in {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    min-height: 62px;
-  }
-  .brand { font-size: 1.05rem; font-weight: 800; letter-spacing: -.01em; text-decoration: none; }
-  .brand b { color: var(--accent); }
-  .navlinks {
-    display: flex;
-    gap: 4px;
-    margin-left: auto;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .navlinks::-webkit-scrollbar { display: none; }
-  .navlinks a {
-    font-size: .88rem;
-    color: var(--muted);
-    text-decoration: none;
-    padding: 8px 11px;
-    border-radius: 6px;
-    white-space: nowrap;
-  }
-  .navlinks a:hover { color: var(--ink); }
-  .navlinks a[aria-current="true"] { color: var(--accent); font-weight: 700; }
-  .btn-pdf {
-    font: inherit;
-    font-size: .84rem;
-    font-weight: 700;
-    color: var(--accent);
-    background: transparent;
-    border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
-    padding: 8px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background .2s ease, color .2s ease;
-  }
-  .btn-pdf:hover { background: var(--accent); color: var(--bg); }
-
-  /* ── 히어로 ── */
-  .hero { padding-block: clamp(84px, 14vh, 150px) clamp(72px, 10vh, 110px); }
-  .hero-eyebrow {
-    margin: 0;
-    font-size: .82rem;
-    font-weight: 700;
-    letter-spacing: .16em;
-    color: var(--accent);
-  }
-  .hero-name {
-    margin: 14px 0 0;
-    font-size: clamp(2.9rem, 8vw, 4.6rem);
-    font-weight: 800;
-    line-height: 1.08;
-    letter-spacing: -.03em;
-  }
-  .hero-slogan {
-    margin: 26px 0 0;
-    max-width: 30ch;
-    font-size: clamp(1.15rem, 2.4vw, 1.45rem);
-    font-weight: 700;
-    line-height: 1.5;
-    letter-spacing: -.01em;
-    text-wrap: balance;
-  }
-  .hero-sub {
-    margin: 14px 0 0;
-    max-width: 58ch;
-    font-size: .98rem;
-    color: var(--muted);
-  }
-  .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
-  .btn {
-    display: inline-block;
-    font-size: .95rem;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 13px 26px;
-    border-radius: 6px;
-    background: var(--accent);
-    color: var(--bg);
-    border: 1px solid var(--accent);
-    transition: filter .2s ease, background .2s ease, color .2s ease;
-  }
-  .btn:hover { filter: brightness(1.08); }
-  .btn.ghost { background: transparent; color: var(--accent); border-color: color-mix(in srgb, var(--accent) 55%, transparent); }
-  .btn.ghost:hover { background: var(--accent); color: var(--bg); filter: none; }
-
-  /* ── 섹션 공통 ── */
-  .sec { padding: clamp(72px, 10vw, 112px) 0; border-top: 1px solid var(--hairline); scroll-margin-top: 70px; }
-  .sec-head { text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
-  .eyebrow {
-    display: block;
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .26em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .sec-title {
-    margin: 10px 0 0;
-    font-size: clamp(1.6rem, 3.4vw, 2.05rem);
-    font-weight: 800;
-    letter-spacing: -.02em;
-    text-wrap: balance;
-  }
-  .sec-desc { margin: 12px auto 0; max-width: 56ch; font-size: .95rem; color: var(--muted); }
-
-  /* ── 소개 ── */
-  .about-row {
-    display: grid;
-    grid-template-columns: 200px minmax(0, 1fr);
-    gap: clamp(28px, 4vw, 48px);
-    align-items: start;
-    max-width: 920px;
-    margin: 0 auto;
-  }
-  .photo {
-    width: 200px;
-    height: auto;
-    border-radius: 10px;
-    border: 1px solid var(--hairline);
-    display: block;
-  }
-  .lead { margin: 0 0 14px; font-size: .97rem; line-height: 1.85; }
-  .lead strong { font-weight: 700; }
-  .lead:last-child { margin-bottom: 0; }
-  .lead.dim { color: var(--muted); }
-
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
-    max-width: 920px;
-    margin: clamp(44px, 6vw, 64px) auto 0;
-    padding: clamp(26px, 4vw, 38px) clamp(18px, 3vw, 34px);
-    background: var(--band);
-    border: 1px solid var(--hairline);
-    border-radius: 14px;
-    text-align: center;
-  }
-  .stat .n {
-    display: block;
-    font-size: clamp(1.7rem, 3.6vw, 2.5rem);
-    font-weight: 800;
-    letter-spacing: -.02em;
-    color: var(--accent);
-    font-variant-numeric: tabular-nums;
-    line-height: 1.15;
-  }
-  .stat .l { display: block; margin-top: 6px; font-size: .82rem; color: var(--muted); }
-
-  /* ── 대표 프로젝트 ── */
-  .aim-card {
-    max-width: 920px;
-    margin: 0 auto;
-    border: 1px solid var(--hairline);
-    border-radius: 14px;
-    padding: clamp(26px, 4vw, 40px);
-    background: var(--card);
-  }
-  .aim-card:hover { border-color: color-mix(in srgb, var(--accent) 35%, var(--hairline)); }
-  .p-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
-  .p-head h3 { margin: 0; font-size: 1.25rem; font-weight: 800; letter-spacing: -.01em; }
-  .p-links { display: flex; gap: 14px; font-size: .84rem; }
-  .p-links a { color: var(--accent); text-decoration: none; font-weight: 700; }
-  .p-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
-  .p-period { margin-left: auto; font-size: .78rem; font-weight: 500; color: var(--faint); font-variant-numeric: tabular-nums; }
-  .p-one { margin: 10px 0 0; font-size: .95rem; color: var(--muted); }
-  .blist { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
-  .blist li { position: relative; padding-left: 26px; font-size: .93rem; line-height: 1.75; }
-  .blist li::before { content: "—"; position: absolute; left: 0; top: 0; color: var(--faint); }
-  .metric { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
-  .tags span {
-    font-size: .72rem;
-    font-weight: 600;
-    letter-spacing: .02em;
-    padding: 4px 9px;
-    border-radius: 4px;
-    border: 1px solid var(--hairline);
-    background: var(--tag-bg);
-    color: var(--tag-ink);
-  }
-
-  /* ── 팀 프로젝트 카드 그리드 ── */
-  .grid3 {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-  }
-  .pcard {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--hairline);
-    border-radius: 14px;
-    padding: 26px 24px;
-    background: var(--card);
-  }
-  .pcard:hover {
-    transform: translateY(-4px);
-    border-color: color-mix(in srgb, var(--accent) 35%, var(--hairline));
-    box-shadow: 0 14px 34px color-mix(in srgb, var(--accent) 9%, transparent);
-  }
-  .pcard h3 { margin: 0; font-size: 1.06rem; font-weight: 800; }
-  .pcard .meta { margin: 5px 0 0; font-size: .78rem; color: var(--faint); }
-  .pcard .p-one { margin: 12px 0 0; font-size: .89rem; }
-  .p-rows { margin: 16px 0 0; display: flex; flex-direction: column; gap: 9px; }
-  .prow { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 10px; margin: 0; }
-  .prow dt { font-size: .74rem; font-weight: 700; letter-spacing: .05em; color: var(--accent); padding-top: .3em; }
-  .prow dd { margin: 0; font-size: .87rem; line-height: 1.7; }
-  .pcard .tags { margin-top: auto; padding-top: 18px; }
-  .pcard .plink { margin-top: 14px; font-size: .82rem; font-weight: 700; color: var(--accent); text-decoration: none; }
-  .pcard .plink:hover { text-decoration: underline; text-underline-offset: 3px; }
-
-  /* ── 기술 ── */
-  .skills-box { max-width: 860px; margin: 0 auto; }
-  .skill {
-    display: grid;
-    grid-template-columns: 150px minmax(0, 1fr);
-    gap: 16px;
-    align-items: baseline;
-    padding: 15px 0;
-  }
-  .skill + .skill { border-top: 1px solid var(--hairline); }
-  .skill .k { font-size: .86rem; font-weight: 700; color: var(--muted); }
-  .skill .tags { margin-top: 0; }
-
-  /* ── 운영 기록 ── */
-  .log-box { max-width: 760px; margin: 0 auto; }
-  .mrow {
-    display: grid;
-    grid-template-columns: 110px minmax(0, 1fr);
-    gap: 8px 26px;
-    padding: 14px 0;
-    font-size: .93rem;
-  }
-  .mrow + .mrow { border-top: 1px solid var(--hairline); }
-  .mrow .when { font-size: .78rem; font-weight: 500; color: var(--faint); font-variant-numeric: tabular-nums; padding-top: .3em; }
-  .mrow b { font-weight: 700; }
-  .mrow .sub { display: block; color: var(--muted); font-size: .86rem; margin-top: 2px; }
-
-  /* ── 연락 · 푸터 ── */
-  .contact-box { text-align: center; }
-  .mail {
-    display: inline-block;
-    margin-top: 6px;
-    font-size: clamp(1.25rem, 3vw, 1.7rem);
-    font-weight: 800;
-    letter-spacing: -.01em;
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .mail:hover { text-decoration: underline; text-underline-offset: 5px; }
-  .contact-links { display: flex; justify-content: center; gap: 22px; margin-top: 22px; font-size: .9rem; }
-  .contact-links a { color: var(--muted); text-decoration: none; }
-  .contact-links a:hover { color: var(--ink); }
-  .foot {
-    border-top: 1px solid var(--hairline);
-    padding: 26px 0 34px;
-    text-align: center;
-    font-size: .78rem;
-    color: var(--faint);
-    line-height: 1.8;
-  }
-  .foot p { margin: 0; }
-
-  /* ── 반응형 ── */
-  @media (max-width: 960px) {
-    .grid3 { grid-template-columns: 1fr; }
-    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 14px; }
-  }
-  @media (max-width: 720px) {
-    .about-row { grid-template-columns: 1fr; }
-    .photo { width: 148px; }
-    .btn-pdf { display: none; }
-    .p-head .p-period { margin-left: 0; width: 100%; }
-  }
-
-  /* ── 인쇄: 그대로 이력서 PDF ── */
-  @media print {
-    :root, :root[data-theme="dark"], :root[data-theme="light"] {
-      --bg: #fff;
-      --ink: #111;
-      --muted: #444;
-      --faint: #666;
-      --accent: #1E40AF;
-      --hairline: #ddd;
-      --tag-bg: #fff;
-      --tag-ink: #333;
-      --card: #fff;
-      --band: #fff;
-    }
-    body { font-size: 12px; }
-    .topnav, .ctas, .no-print { display: none !important; }
-    .hero { padding: 0 0 18px; }
-    .hero-name { font-size: 26px; }
-    .hero-slogan { font-size: 15px; margin-top: 10px; }
-    .sec { padding: 18px 0; scroll-margin-top: 0; }
-    .sec-head { text-align: left; margin-bottom: 14px; }
-    .about-row { grid-template-columns: 96px minmax(0, 1fr); gap: 16px; }
-    .photo { width: 96px; border-radius: 6px; }
-    .stats { margin-top: 18px; padding: 12px; gap: 8px; border-radius: 8px; grid-template-columns: repeat(4, 1fr); }
-    .stat .n { font-size: 16px; }
-    .stat .l { font-size: 10px; margin-top: 2px; }
-    .aim-card { padding: 0; border: 0; }
-    .grid3 { grid-template-columns: 1fr; gap: 12px; }
-    .pcard { padding: 0 0 12px; border: 0; border-bottom: 1px solid var(--hairline); border-radius: 0; }
-    .pcard:hover, .aim-card:hover { transform: none; box-shadow: none; }
-    .sec, .pcard, .skill, .mrow, .aim-card { break-inside: avoid; }
-    .contact-box .mail { font-size: 14px; }
-    a { text-decoration: none; color: inherit; }
-  }
-  @page { margin: 13mm; }
-</style>
-
-<div lang="ko">
-
-  <nav class="topnav no-print" aria-label="섹션 이동">
-    <div class="container topnav-in">
-      <a class="brand" href="#top">fox_shin</a>
-      <div class="navlinks">
-        <a href="#about" aria-current="true">소개</a>
-        <a href="#aim">대표 프로젝트</a>
-        <a href="#projects">팀 프로젝트</a>
-        <a href="#skills">기술</a>
-        <a href="#career">경력 · 교육</a>
-        <a href="#log">운영 기록</a>
-        <a href="#contact">연락</a>
-      </div>
-      <button class="btn-pdf" type="button" id="printBtn">이력서 PDF</button>
-    </div>
-  </nav>
-
-  <header class="hero container" id="top">
-    <p class="hero-eyebrow">만들고, 측정하고, 운영합니다</p>
-    <h1 class="hero-name">신현수</h1>
-    <p class="hero-slogan">1%의 정확도 향상과 1ms의 지연 시간 단축에 집착합니다.</p>
-    <p class="hero-sub">AI 품질 모니터링 서비스 AIM을 혼자 만들어 자체 도메인에서 운영 중인 AI 엔지니어입니다.</p>
-    <div class="ctas no-print">
-      <a class="btn" href="#aim">대표 프로젝트 보기</a>
-      <a class="btn ghost" href="https://github.com/Shin-H-S" target="_blank" rel="noopener">GitHub ↗</a>
-    </div>
-  </header>
-
-  <main>
-
-    <section id="about" class="sec">
-      <div class="container">
-        <div class="sec-head">
-          <span class="eyebrow">About</span>
-          <h2 class="sec-title">소개</h2>
-        </div>
-        <div class="about-row">
-          <img class="photo" src="./photo.jpg" alt="신현수 증명사진" width="354" height="472">
-          <div>
-            <p class="lead">
-              가설-지표-평가의 개선 플라이휠을 돌리며 한계 성능을 쥐어짜는 과정에 희열을 느낍니다.
-              Advanced RAG 파이프라인(<strong>Bidcoin</strong>)에서는 LLM-as-Judge 평가를 11회 반복하며
-              답변 정확도를 0.52에서 0.78로 끌어올렸고, 생성형 AI 서비스(<strong>Go_Gachi</strong>)에서는
-              프로덕션 실측 로그를 근거로 응답 페이로드를 99.97% 줄였습니다.
-            </p>
-            <p class="lead dim">
-              이 집착은 4년간 육군 특수임무대 팀장으로 돌발 상황을 통제하고 대응 매뉴얼을 고쳐 쓰며
-              몸에 익힌 리스크 관리에서 비롯됐습니다. 지금은 AI 품질 모니터링 서비스 <strong>AIM</strong>을
-              혼자 만들어 실서비스로 운영하며 수명주기 전체를 완주하고 있습니다.
-              이 페이지의 모든 숫자는 실측입니다.
-            </p>
-          </div>
-        </div>
-        <div class="stats">
-          <div class="stat"><span class="n">269</span><span class="l">AIM 커밋</span></div>
-          <div class="stat"><span class="n">115</span><span class="l">머지된 PR</span></div>
-          <div class="stat"><span class="n">460</span><span class="l">테스트 (Py 337 + Web 123)</span></div>
-          <div class="stat"><span class="n">3주</span><span class="l">실서비스 도달</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="aim" class="sec">
-      <div class="container">
-        <div class="sec-head">
-          <span class="eyebrow">Flagship</span>
-          <h2 class="sec-title">대표 프로젝트</h2>
-          <p class="sec-desc">기획부터 운영까지 1인으로 완주한 실서비스입니다.</p>
-        </div>
-        <article class="aim-card">
-          <div class="p-head">
-            <h3>AIM — AI Quality Monitor</h3>
-            <div class="p-links no-print"><a href="https://qaaimsync.com" target="_blank" rel="noopener">서비스 ↗</a><a href="https://github.com/Shin-H-S/AIM" target="_blank" rel="noopener">GitHub ↗</a></div>
-            <span class="p-period">2026.06 — 현재 · 1인 개발</span>
-          </div>
-          <p class="p-one">“이번 배포, 이전보다 정말 나아졌을까?” — 배포 후 웹서비스의 품질 변화를 근거 기반으로 판단하는 AI 품질 모니터링 플랫폼</p>
-          <ul class="blist">
-            <li>점수·등급과 장애 판정은 결정론적 코드로 계산하고, LLM은 수집된 근거를 서술하는 역할로 제한해 판정 결과의 재현성을 확보했습니다. LLM 호출 실패 시 규칙 기반 리포트로 자동 전환하는 폴백 경로도 갖췄습니다.</li>
-            <li>가용성 · SSL · Lighthouse · Playwright 시나리오를 한 번에 검사하는 Celery · Redis 비동기 파이프라인을 구축하고, 작업 완료 순서와 무관하게 점수 · 회귀 비교 · 리포트가 일관되게 수렴하도록 정합성을 설계했습니다.</li>
-            <li>시작 3주 차에 자체 도메인 HTTPS 실서비스에 도달했습니다 — 커밋 <span class="metric">269</span> · 머지 PR <span class="metric">115</span> · 테스트 <span class="metric">460개</span>(백엔드 337 + 웹 123, 2026.07 실측).</li>
-            <li>일일 오프박스 백업과 복원 리허설로 검증한 복구 런북을 갖추고, 운영 중 GCP → Oracle Cloud 이전을 수행하며 백업·복원 경로를 실전 재검증했습니다.</li>
-            <li>CI 배포 훅과 Slack/Discord webhook 알림을 연동하고, AIM 자신을 첫 프로젝트로 등록해 60분 주기로 스스로를 모니터링합니다.</li>
-          </ul>
-          <div class="tags">
-            <span>Python</span><span>FastAPI</span><span>Celery</span><span>Redis</span><span>PostgreSQL</span><span>Playwright</span><span>Next.js</span><span>TypeScript</span><span>Docker</span><span>Oracle Cloud</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="projects" class="sec">
-      <div class="container">
-        <div class="sec-head">
-          <span class="eyebrow">Team projects</span>
-          <h2 class="sec-title">팀 프로젝트</h2>
-          <p class="sec-desc">역할과 기여를 구분해 적었습니다 — 제가 직접 만든 것만 제 성과로 말합니다.</p>
-        </div>
-        <div class="grid3">
-
-          <article class="pcard">
-            <h3>Bidcoin</h3>
-            <p class="meta">팀 BidMind · 5인 · RAG Integration &amp; Model Optimization Lead</p>
-            <p class="p-one">공공조달 RFP 문서 검색 품질을 끌어올린 Advanced RAG 파이프라인</p>
-            <dl class="p-rows">
-              <div class="prow"><dt>역할</dt><dd>검색·생성 파트를 End-to-End로 통합하는 RAG 파이프라인을 설계하고, Cross-Encoder(bge-reranker-v2-m3) 재정렬과 Self-RAG 검증 단계를 직접 구현했습니다.</dd></div>
-              <div class="prow"><dt>기여</dt><dd>HyDE 제거 · Self-RAG 프리패스 · 검색 병렬화와 FAISS/Chroma A/B 벤치마크(1.8배 빠른 구성 채택)로 질의당 LLM 호출 2회 절감, 응답 지연 <span class="metric">1~2초 단축</span> — 품질 지표 하락 없음.</dd></div>
-              <div class="prow"><dt>성과</dt><dd>LLM-as-Judge 평가(RAGAS 호환 6지표 × 47문항)를 11회 반복하며 답변 정확도 <span class="metric">0.52 → 0.78 (+50%)</span> · 검색 재현율 <span class="metric">0.51 → 0.76 (+49%)</span> · 평가셋 기준 환각 0건, faithfulness 평균 0.97.</dd></div>
-            </dl>
-            <div class="tags"><span>Advanced RAG</span><span>FAISS · BM25 (Kiwi)</span><span>Cross-Encoder</span><span>Self-RAG</span><span>OpenAI API</span><span>LLM-as-Judge</span></div>
-            <a class="plink no-print" href="https://github.com/BidMind/Bidcoin" target="_blank" rel="noopener">GitHub ↗</a>
-          </article>
-
-          <article class="pcard">
-            <h3>Go_Gachi</h3>
-            <p class="meta">5인 팀 · Team Leader &amp; AI Pipeline Engineer</p>
-            <p class="p-one">소상공인을 위한 생성형 AI 광고 이미지 자동 생성 서비스 MVP</p>
-            <dl class="p-rows">
-              <div class="prow"><dt>역할</dt><dd>팀장으로서 생성형 AI 이미지 파이프라인 설계와 구간별 타이밍 계측을 직접 구현했습니다.</dd></div>
-              <div class="prow"><dt>기여</dt><dd>프로덕션 요청 <span class="metric">199건</span>의 구간별 타이밍 실측(평균 62~79초, 최대 241초)을 근거로 비동기 Job 아키텍처를 도입해, 최대 4분의 AI 추론을 UI 블로킹 없이 처리했습니다.</dd></div>
-              <div class="prow"><dt>성과</dt><dd>base64 인라인 응답을 R2 저장 URL 참조로 전환해 페이로드 <span class="metric">99.97% 감소 (2.1MB → 0.5KB)</span>, 폴링 최적화로 상태 조회 트래픽 <span class="metric">40% 이상 감소</span>.</dd></div>
-            </dl>
-            <div class="tags"><span>Python</span><span>FastAPI</span><span>OpenAI API</span><span>Cloudflare R2</span><span>Docker</span></div>
-            <a class="plink no-print" href="https://github.com/Shin-H-S/Go_Gachi" target="_blank" rel="noopener">GitHub ↗</a>
-          </article>
-
-          <article class="pcard">
-            <h3>알약 객체 탐지 (YOLOv11)</h3>
-            <p class="meta">5인 팀 · Model Architect &amp; Experimentation Lead (공동)</p>
-            <p class="p-one">경구약 이미지에서 알약을 탐지하는 Kaggle 경진 프로젝트</p>
-            <dl class="p-rows">
-              <div class="prow"><dt>역할</dt><dd>YOLOv11 nano~large 실험 매트릭스를 설계·운영하고, 실험 로그와 평가 지표를 문서화해 재현 가능한 실험 환경을 표준화했습니다.</dd></div>
-              <div class="prow"><dt>기여</dt><dd>copy-paste 데이터 증강 파이프라인을 직접 구현했고, 증강 조합 실험으로 mAP50-95 <span class="metric">+1.4~1.5%p</span> 향상을 확인했습니다.</dd></div>
-              <div class="prow"><dt>성과</dt><dd>Kaggle Public <span class="metric">0.95581</span> (mAP@[0.75:0.95]) · 추론 <span class="metric">57ms/장</span> (GTX 1650 SUPER 실측).</dd></div>
-            </dl>
-            <div class="tags"><span>YOLOv11</span><span>PyTorch</span><span>OpenCV</span><span>Optuna</span><span>데이터 증강</span><span>Kaggle</span></div>
-            <a class="plink no-print" href="https://github.com/Shin-H-S/Code_it-Basic-Project" target="_blank" rel="noopener">GitHub ↗</a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="sec">
-      <div class="container">
-        <div class="sec-head">
-          <span class="eyebrow">Skills</span>
-          <h2 class="sec-title">기술</h2>
-        </div>
-        <div class="skills-box">
-          <div class="skill">
-            <span class="k">LLM · Advanced RAG</span>
-            <div class="tags"><span>LangChain</span><span>LlamaIndex</span><span>FAISS</span><span>BM25 (Kiwi)</span><span>Chroma</span><span>Cross-Encoder</span><span>Self-RAG</span></div>
-          </div>
-          <div class="skill">
-            <span class="k">AI Serving · Backend</span>
-            <div class="tags"><span>Python</span><span>FastAPI</span><span>Celery</span><span>Redis</span><span>PostgreSQL</span><span>RESTful API</span><span>Docker</span></div>
-          </div>
-          <div class="skill">
-            <span class="k">Core ML · Data</span>
-            <div class="tags"><span>PyTorch</span><span>YOLOv11</span><span>OpenCV</span><span>Optuna</span><span>LLM-as-Judge 평가</span></div>
-          </div>
-          <div class="skill">
-            <span class="k">프런트엔드</span>
-            <div class="tags"><span>Next.js (App Router)</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span></div>
-          </div>
-          <div class="skill">
-            <span class="k">인프라 · 품질</span>
-            <div class="tags"><span>Oracle Cloud (ARM)</span><span>GCP</span><span>Cloudflare R2</span><span>GitHub Actions</span><span>Caddy</span><span>pytest · Vitest</span><span>ruff · mypy</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="career" class="sec">
-      <div class="container">
-        <div class="sec-head">
-          <span class="eyebrow">Career &amp; Education</span>
-          <h2 class="sec-title">경력 · 교육</h2>
-        </div>
-        <div class="log-box">
-          <div class="mrow">
-            <span class="when">2025.11 — 2026.06</span>
-            <div><b>코드잇 스프린트 부트캠프 — AI Engineer 수료</b><span class="sub">텍스트 청킹 · 의미론적 검색 · 비동기 처리의 원리를 딥다이브해 E2E 아키텍처 설계 역량 체득, 가설-지표-평가 중심 실험 체화</span></div>
-          </div>
-          <div class="mrow">
-            <span class="when">2020.06 — 2024.05</span>
-            <div><b>육군 군사경찰 · 특수임무대 팀장 (하사)</b><span class="sub">상황별 대응 프로세스 설계와 표준 매뉴얼(SOP) 수립 주도 · 출동 소요 시간 10분 → 5분 단축</span></div>
-          </div>
-          <div class="mrow">
-            <span class="when">2016.03 — 2018.02</span>
-            <div><b>한국영상대학교 영상정보부사관과 졸업</b></div>
-          </div>
-          <div class="mrow">
-            <span class="when">2016.09</span>
-            <div><b>초경량비행장치 조종자</b><span class="sub">한국교통안전공단</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="log" class="sec">
-      <div class="container">
-        <div class="sec-head">
-          <span class="eyebrow">Ops log</span>
-          <h2 class="sec-title">운영 기록</h2>
-        </div>
-        <div class="log-box">
-          <div class="mrow">
-            <span class="when">2026.06</span>
-            <div><b>AIM 개발 시작</b><span class="sub">기획 · 설계부터 1인 개발</span></div>
-          </div>
-          <div class="mrow">
-            <span class="when">2026.07</span>
-            <div><b>3주 차 실서비스 도달</b><span class="sub">qaaimsync.com HTTPS 오픈 · 자체 배포 검사 100/100 A</span></div>
-          </div>
-          <div class="mrow">
-            <span class="when">2026.07</span>
-            <div><b>Oracle Cloud 이전</b><span class="sub">GCP → Ampere A1(ARM) 단일 VM, 백업 · 스냅샷 폴백 체계 정비</span></div>
-          </div>
-          <div class="mrow">
-            <span class="when">상시</span>
-            <div><b>자기 모니터링 운영</b><span class="sub">AIM에 AIM을 등록, 60분 주기 정기 검사 + webhook 알림</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="sec">
-      <div class="container contact-box">
-        <div class="sec-head">
-          <span class="eyebrow">Contact</span>
-          <h2 class="sec-title">연락</h2>
-          <p class="sec-desc">이메일 한 통이면 충분합니다. 프로젝트와 코드는 링크에 전부 공개돼 있습니다.</p>
-        </div>
-        <a class="mail" href="mailto:shyunsu3@gmail.com">shyunsu3@gmail.com</a>
-        <div class="contact-links no-print">
-          <a href="https://github.com/Shin-H-S" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://qaaimsync.com" target="_blank" rel="noopener">AIM 서비스</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="foot">
-    <div class="container">
-      <p>이 페이지의 모든 수치는 실측 기록입니다. 웹으로는 포트폴리오, 인쇄(⌘/Ctrl+P)하면 그대로 이력서 PDF가 됩니다.</p>
-      <p>© 2026 신현수 · shyunsu3@gmail.com</p>
-    </div>
-  </footer>
-
-</div>
-
-<script>
-  (function () {
-    var links = document.querySelectorAll('.navlinks a');
-    var byId = {};
-    links.forEach(function (l) { byId[l.getAttribute('href').slice(1)] = l; });
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        links.forEach(function (l) { l.removeAttribute('aria-current'); });
-        var link = byId[entry.target.id];
-        if (link) link.setAttribute('aria-current', 'true');
-      });
-    }, { rootMargin: '-25% 0px -65% 0px' });
-
-    document.querySelectorAll('.sec[id]').forEach(function (s) { observer.observe(s); });
-
-    document.getElementById('printBtn').addEventListener('click', function () {
-      window.print();
-    });
-  })();
-</script>
-
-</body>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="img/favicon.png" type="image/png">
+        <title>신현수 — 이력서 · 포트폴리오</title>
+        <meta name="description" content="AI 품질 모니터링 서비스 AIM을 만들고 운영하는 AI 엔지니어 신현수의 이력서 겸 포트폴리오. 모든 수치는 실측 기록입니다.">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="신현수 — 이력서 · 포트폴리오">
+        <meta property="og:description" content="AI 품질 모니터링 서비스 AIM(qaaimsync.com)을 만들고 운영하는 AI 엔지니어. 1%의 정확도 향상과 1ms의 지연 시간 단축에 집착합니다.">
+        <meta property="og:url" content="https://shin-h-s.github.io/">
+        <meta property="og:locale" content="ko_KR">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="vendors/linericon/style.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
+        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+        <link rel="stylesheet" href="vendors/animate-css/animate.css">
+        <link rel="stylesheet" href="vendors/flaticon/flaticon.css">
+        <!-- main css -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/custom.css">
+    </head>
+    <body>
+        
+        <!--================Header Menu Area =================-->
+        <header class="header_area">
+            <div class="main_menu" id="mainNav">
+            	<nav class="navbar navbar-expand-lg navbar-light">
+					<div class="container box_1620">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<a class="navbar-brand logo_h brand-text" href="#">fox_shin</a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+							<ul class="nav navbar-nav menu_nav ml-auto">
+								<li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+								<li class="nav-item"><a class="nav-link" href="#about">소개</a></li>
+								<li class="nav-item"><a class="nav-link" href="#projects">프로젝트</a></li>
+								<li class="nav-item"><a class="nav-link" href="#career">경력 · 교육</a></li>
+								<li class="nav-item"><a class="nav-link" href="#contact">연락</a></li>
+							</ul>
+							</div> 
+					</div>
+            	</nav>
+            </div>
+        </header>
+        <!--================Header Menu Area =================-->
+        
+        <!--================Home Banner Area =================-->
+        <section class="home_banner_area">
+            <div class="banner_inner">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="home_left_img">
+								<img src="img/banner/home-left-1.png" alt="">
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="banner_content">
+								<h5>만들고, 측정하고, 운영합니다</h5>
+								<h2>신현수</h2>
+								<p>1%의 정확도 향상과 1ms의 지연 시간 단축에 집착합니다. AI 품질 모니터링 서비스 AIM을 혼자 만들어 자체 도메인에서 운영 중인 AI 엔지니어입니다.</p>
+								<a class="banner_btn" href="#projects">프로젝트 보기</a>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+        
+        <!--================Welcome Area =================-->
+        <section class="welcome_area p_120" id="about">
+        	<div class="container">
+        		<div class="row welcome_inner">
+        			<div class="col-lg-6">
+        				<div class="welcome_text">
+        					<h4>소개</h4>
+        					<p>가설-지표-평가의 개선 플라이휠을 돌리며 한계 성능을 쥐어짜는 과정에 희열을 느낍니다. Advanced RAG(Bidcoin)에서는 LLM-as-Judge 평가를 11회 반복해 답변 정확도를 0.52에서 0.78로 끌어올렸고, 생성형 AI 서비스(Go_Gachi)에서는 실측 로그를 근거로 응답 페이로드를 99.97% 줄였습니다. 이 집착은 4년간 육군 특수임무대 팀장으로 몸에 익힌 리스크 관리에서 비롯됐습니다. 이 페이지의 모든 숫자는 실측입니다.</p>
+        					<div class="row">
+        						<div class="col-md-4">
+        							<div class="wel_item">
+        								<i class="lnr lnr-code"></i>
+        								<h4>269</h4>
+        								<p>AIM 커밋</p>
+        							</div>
+        						</div>
+        						<div class="col-md-4">
+        							<div class="wel_item">
+        								<i class="lnr lnr-cloud-sync"></i>
+        								<h4>115</h4>
+        								<p>머지된 PR</p>
+        							</div>
+        						</div>
+        						<div class="col-md-4">
+        							<div class="wel_item">
+        								<i class="lnr lnr-checkmark-circle"></i>
+        								<h4>460</h4>
+        								<p>테스트 통과</p>
+        							</div>
+        						</div>
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col-lg-6">
+        				<div class="tools_expert">
+        					<h3>기술 스택</h3>
+        					<div class="skill_main">
+								<div class="skill_item"><h4>LLM · Advanced RAG</h4><p>LangChain · LlamaIndex · FAISS · BM25 (Kiwi) · Chroma · Cross-Encoder · Self-RAG</p></div>
+								<div class="skill_item"><h4>AI Serving · Backend</h4><p>Python · FastAPI · Celery · Redis · PostgreSQL · RESTful API · Docker</p></div>
+								<div class="skill_item"><h4>Core ML · Data</h4><p>PyTorch · YOLOv11 · OpenCV · Optuna · LLM-as-Judge 평가</p></div>
+								<div class="skill_item"><h4>Frontend</h4><p>Next.js (App Router) · React · TypeScript · Tailwind CSS</p></div>
+								<div class="skill_item"><h4>Infra · 품질</h4><p>Oracle Cloud (ARM) · GCP · Cloudflare R2 · GitHub Actions · Caddy · pytest · Vitest · ruff · mypy</p></div>
+							</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Welcome Area =================-->
+        
+        <!--================Feature Area =================-->
+        <section class="feature_area p_120" id="projects">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>프로젝트</h2>
+        			<p>역할과 기여를 구분해 적었습니다 — 모든 수치는 실측 기록입니다.</p>
+        		</div>
+        		<div class="feature_inner row">
+        			<div class="col-lg-6 col-md-6">
+        				<div class="feature_item">
+        					<i class="flaticon-city"></i>
+        					<h4>AIM — AI Quality Monitor</h4>
+        					<p>배포 후 웹서비스 품질 변화를 근거 기반으로 판단하는 AI 모니터링 플랫폼. 1인 풀사이클로 시작 3주 차에 실서비스에 도달했고, 점수·장애 판정은 결정론적 코드로 계산하며 LLM은 근거 서술로 제한했습니다(호출 실패 시 규칙 기반 폴백). 지금도 AIM이 AIM 자신을 60분 주기로 모니터링합니다.</p>
+        					<p class="plinks"><a href="https://qaaimsync.com" target="_blank" rel="noopener">서비스 ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Shin-H-S/AIM" target="_blank" rel="noopener">GitHub ↗</a></p>
+        				</div>
+        			</div>
+        			<div class="col-lg-6 col-md-6">
+        				<div class="feature_item">
+        					<i class="flaticon-sketch"></i>
+        					<h4>Bidcoin — Advanced RAG</h4>
+        					<p>공공조달 RFP 문서 검색·질의응답 파이프라인 (5인 팀 · RAG Integration &amp; Model Optimization Lead). Cross-Encoder(bge-reranker-v2-m3) 재정렬과 Self-RAG 검증을 직접 구현하고, LLM-as-Judge 평가(6지표 × 47문항)를 11회 반복해 답변 정확도 0.52 → 0.78 (+50%), 검색 재현율 0.51 → 0.76 (+49%)을 달성했습니다.</p>
+        					<p class="plinks"><a href="https://github.com/BidMind/Bidcoin" target="_blank" rel="noopener">GitHub ↗</a></p>
+        				</div>
+        			</div>
+        			<div class="col-lg-6 col-md-6">
+        				<div class="feature_item">
+        					<i class="flaticon-skyline"></i>
+        					<h4>Go_Gachi — 생성형 AI 광고 이미지 MVP</h4>
+        					<p>소상공인용 AI 광고 이미지 자동 생성 서비스 (5인 팀 · Team Leader &amp; AI Pipeline Engineer). 프로덕션 199건 구간별 타이밍 실측을 근거로 비동기 Job 아키텍처를 도입해 최대 4분의 추론을 UI 블로킹 없이 처리하고, base64 응답을 R2 URL 참조로 전환해 페이로드를 99.97% 줄였습니다 (2.1MB → 0.5KB).</p>
+        					<p class="plinks"><a href="https://github.com/Shin-H-S/Go_Gachi" target="_blank" rel="noopener">GitHub ↗</a></p>
+        				</div>
+        			</div>
+        			<div class="col-lg-6 col-md-6">
+        				<div class="feature_item">
+        					<i class="flaticon-city"></i>
+        					<h4>알약 객체 탐지 — YOLOv11</h4>
+        					<p>경구약 이미지 객체 탐지 Kaggle 경진 (5인 팀 · Model Architect &amp; Experimentation Lead 공동). copy-paste 데이터 증강 파이프라인을 직접 구현해 증강 조합으로 mAP50-95 +1.4~1.5%p 향상을 확인했고, Kaggle Public 0.95581 (mAP@[0.75:0.95]) · 추론 57ms/장(GTX 1650 SUPER 실측)을 기록했습니다.</p>
+        					<p class="plinks"><a href="https://github.com/Shin-H-S/Code_it-Basic-Project" target="_blank" rel="noopener">GitHub ↗</a></p>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Feature Area =================-->
+        
+        
+        
+        
+        
+        <!--================Latest Blog Area =================-->
+        <section class="latest_blog_area p_120" id="career">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>경력 · 교육</h2>
+        			<p>현장에서 몸에 익힌 리스크 관리 위에 AI 엔지니어링을 쌓았습니다.</p>
+        		</div>
+        		<div class="row latest_blog_inner">
+        			<div class="col-lg-4">
+        				<div class="l_blog_item">
+        					<div class="l_blog_text">
+        						<div class="date"><a href="#career">2025.11 — 2026.06</a></div>
+        						<h4>코드잇 스프린트 부트캠프 · AI Engineer 수료</h4>
+        						<p>텍스트 청킹 · 의미론적 검색 · 비동기 처리의 원리를 딥다이브해 E2E 아키텍처 설계 역량을 체득하고, 가설-지표-평가 중심의 실험을 체화했습니다.</p>
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col-lg-4">
+        				<div class="l_blog_item">
+        					<div class="l_blog_text">
+        						<div class="date"><a href="#career">2020.06 — 2024.05</a></div>
+        						<h4>육군 군사경찰 · 특수임무대 팀장 (하사)</h4>
+        						<p>상황별 대응 프로세스 설계와 표준 매뉴얼(SOP) 수립을 주도하고, 출동 소요 시간을 10분에서 5분으로 단축했습니다.</p>
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col-lg-4">
+        				<div class="l_blog_item">
+        					<div class="l_blog_text">
+        						<div class="date"><a href="#career">2016.03 — 2018.02</a></div>
+        						<h4>한국영상대학교 영상정보부사관과 졸업</h4>
+        						<p>자격: 초경량비행장치 조종자 (2016.09, 한국교통안전공단)</p>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Latest Blog Area =================-->
+        
+        <!--================Footer Area =================-->
+        <footer class="footer_area p_120" id="contact">
+        	<div class="container">
+        		<div class="row footer_inner">
+        			<div class="col-lg-5 col-sm-6">
+        				<aside class="f_widget ab_widget">
+        					<div class="f_title">
+        						<h3>About Me</h3>
+        					</div>
+        					<p>AI 품질 모니터링 서비스 AIM(qaaimsync.com)을 만들고 운영합니다. 이 페이지의 모든 수치는 실측 기록입니다.</p>
+        					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</p>
+        				</aside>
+        			</div>
+        			<div class="col-lg-5 col-sm-6">
+        				<aside class="f_widget news_widget">
+        					<div class="f_title">
+        						<h3>Contact</h3>
+        					</div>
+        					<p>이메일 한 통이면 충분합니다.</p>
+        					<p><a href="mailto:shyunsu3@gmail.com">shyunsu3@gmail.com</a><br>
+        					<a href="https://github.com/Shin-H-S" target="_blank" rel="noopener">github.com/Shin-H-S</a><br>
+        					<a href="https://qaaimsync.com" target="_blank" rel="noopener">qaaimsync.com (AIM)</a></p>
+        				</aside>
+        			</div>
+        			<div class="col-lg-2">
+        				<aside class="f_widget social_widget">
+        					<div class="f_title">
+        						<h3>Links</h3>
+        					</div>
+        					<p>코드와 서비스는 여기에</p>
+        					<ul class="list">
+        						<li><a href="https://github.com/Shin-H-S" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a></li>
+        						<li><a href="mailto:shyunsu3@gmail.com" aria-label="이메일"><i class="fa fa-envelope-o"></i></a></li>
+        						<li><a href="https://qaaimsync.com" target="_blank" rel="noopener" aria-label="AIM 서비스"><i class="fa fa-globe"></i></a></li>
+        						
+        					</ul>
+        				</aside>
+        			</div>
+        		</div>
+        	</div>
+        </footer>
+        <!--================End Footer Area =================-->
+        
+        
+        
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/stellar.js"></script>
+        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+        <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+        <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+        <script src="vendors/isotope/isotope-min.js"></script>
+        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+        
+        <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+        <script src="vendors/counter-up/jquery.counterup.min.js"></script>
+        
+        
+        
+        
+        <script src="js/theme.js"></script>
+    </body>
 </html>
