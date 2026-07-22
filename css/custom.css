@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5, h6 { font-family: "Pretendard", "Heebo", sans-serif; }
 .tools_expert .skill_main .skill_item { margin-bottom: 22px; }
 .tools_expert .skill_main .skill_item:last-child { margin-bottom: 0; }
 .tools_expert .skill_main .skill_item h4 {
-  text-align: left;
+  text-align: left !important;
   font-family: "Pretendard", "Heebo", sans-serif;
   font-size: 15px;
   font-weight: 700;
@@ -52,3 +52,30 @@ h1, h2, h3, h4, h5, h6 { font-family: "Pretendard", "Heebo", sans-serif; }
   .home_banner_area .banner_inner .home_left_img { margin: 12px 0 36px; }
   .home_left_img .profile-photo { width: 200px; }
 }
+.timeline { position: relative; max-width: 720px; margin: 0 auto; text-align: left; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: #e6e6f2;
+}
+.timeline_item { position: relative; padding: 0 0 34px 36px; }
+.timeline_item:last-child { padding-bottom: 0; }
+.timeline_item::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #8490ff;
+  box-shadow: 0 0 0 4px rgba(132, 144, 255, .15);
+}
+.timeline_date { font-size: 13px; font-weight: 700; color: #8490ff; margin-bottom: 6px; }
+.timeline_item h4 { font-size: 17px; font-weight: 700; color: #222; margin-bottom: 8px; }
+.timeline_item p { margin-bottom: 0; line-height: 1.75; color: #777; }
