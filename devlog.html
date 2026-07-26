@@ -5,11 +5,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>개발일지 — AIM 5주의 기록 | 신현수</title>
-        <meta name="description" content="AI 품질 모니터링 서비스 AIM을 기획부터 실서비스 운영까지 완주한 5주의 기록. 저장소 실측(커밋·머지·마이그레이션)으로 재구성한 개발일지입니다.">
+        <title>개발일지 — AIM 6주의 기록 | 신현수</title>
+        <meta name="description" content="AI 품질 모니터링 서비스 AIM을 기획부터 실서비스 운영까지 완주한 6주의 기록. 저장소 실측(커밋·머지·마이그레이션)으로 재구성한 개발일지입니다.">
         <meta property="og:type" content="article">
-        <meta property="og:title" content="개발일지 — AIM 5주의 기록">
-        <meta property="og:description" content="혼자서 기획부터 실서비스 운영까지. 커밋 338 · 머지 147 · 테스트 557, 그리고 각 주를 정의한 사건들.">
+        <meta property="og:title" content="개발일지 — AIM 6주의 기록">
+        <meta property="og:description" content="혼자서 기획부터 실서비스 운영까지. 커밋 354 · 머지 154 · 테스트 578, 그리고 각 주를 정의한 사건들.">
         <meta property="og:url" content="https://shin-h-s.github.io/devlog.html">
         <meta property="og:locale" content="ko_KR">
         <meta property="og:image" content="https://shin-h-s.github.io/img/og-image.png">
@@ -66,13 +66,13 @@
             <div class="banner_inner">
 				<div class="container">
 					<div class="dl_label">Devlog · AIM</div>
-					<h1>혼자서 실서비스까지,<br><span class="accent">5주의 기록</span></h1>
+					<h1>혼자서 실서비스까지,<br><span class="accent">6주의 기록</span></h1>
 					<p class="dl_sub">AI 품질 모니터링 플랫폼 AIM을 기획부터 운영까지 완주한 과정입니다. 기억이 아니라 저장소 실측 — 커밋 날짜, 머지 이력, 마이그레이션 — 에서 재구성했고, 각 주를 정의한 사건을 함께 남겼습니다. <a href="https://qaaimsync.com" target="_blank" rel="noopener">라이브 서비스 ↗</a> · <a href="https://github.com/Shin-H-S/AIM" target="_blank" rel="noopener">저장소 ↗</a></p>
 					<div class="devlog_stats">
-						<div class="dl_stat"><b>338</b><span>커밋</span></div>
-						<div class="dl_stat"><b>147</b><span>머지</span></div>
-						<div class="dl_stat"><b>557</b><span>테스트 함수</span></div>
-						<div class="dl_stat"><b>34</b><span>DB 마이그레이션</span></div>
+						<div class="dl_stat"><b>354</b><span>커밋</span></div>
+						<div class="dl_stat"><b>154</b><span>머지</span></div>
+						<div class="dl_stat"><b>578</b><span>테스트 함수</span></div>
+						<div class="dl_stat"><b>35</b><span>DB 마이그레이션</span></div>
 						<div class="dl_stat"><b>₩0</b><span>월 서버비</span></div>
 					</div>
 				</div>
@@ -154,7 +154,7 @@
         			</div>
 
         			<div class="timeline_item">
-        				<div class="devlog_range">2026.07.21 — 07.24 <span class="commits">· 28 commits · 진행 중</span></div>
+        				<div class="devlog_range">2026.07.21 — 07.24 <span class="commits">· 28 commits</span></div>
         				<h4>5주 차 — 조사 에이전트</h4>
         				<p>&ldquo;점수가 떨어졌다&rdquo;에서 <b>&ldquo;왜 떨어졌는지&rdquo;</b>로. 장애가 감지되면 에이전트가 자동으로 조사해 원인을 판정하고 Discord로 보고합니다. 평가셋 없이는 한 줄도 믿지 않는다는 원칙으로, 구현보다 평가 체계를 먼저 만들었습니다.</p>
         				<ul class="devlog_days">
@@ -166,6 +166,24 @@
         				<div class="devlog_incident">
         					<div class="i_label">이 주의 사건</div>
         					<p>도그푸딩 통과 — 운영에 지연을 주입해 장애를 일으키자 에이전트가 자동 조사를 돌아 <code>server_slow</code>를 정확히 판정하고 Discord까지 보고했습니다. 그 과정에서 재현 판정 결함 2건을 스스로 드러내 수정했습니다. 남은 것은 나머지 원인 유형 도그푸딩과 게이트 승격입니다.</p>
+        				</div>
+        			</div>
+
+        			<div class="timeline_item">
+        				<div class="devlog_range">2026.07.26 — 07.27 <span class="commits">· 16 commits</span></div>
+        				<h4>6주 차 — 검증이 기능을 다시 만들다</h4>
+        				<p>에이전트를 자동 운영에 올려도 되는지 판정하는 주였습니다. 결과부터 말하면 통과했지만, 그 과정에서 <b>기능 하나가 통째로 새로 필요하다는 사실</b>이 드러났습니다.</p>
+        				<ul class="devlog_days">
+        					<li><span class="d">평가셋</span><span class="t">실전 사고 2건을 트레이스에서 그대로 케이스로 편입. 미뤄뒀던 원칙을 확정했습니다 — <b>실측 사고는 예외 없이 dev로</b>. 트레이스를 보고 코드를 고친 데이터라 test에 섞이면 최종 채점이 낙관 편향됩니다</span></li>
+        					<li><span class="d">실험대</span><span class="t">서비스에 실사용자가 생겨 운영을 함부로 깨뜨릴 수 없게 됐습니다. <b>고의로 망가뜨려도 되는 별도 대상</b>을 만들었습니다 — 독립 서브도메인에 정적 페이지를 띄우고, 파일 교체 한 줄로 정상 · UI 파손 · 폼 이사 상태를 오갑니다</span></li>
+        					<li><span class="d">판독기</span><span class="t">UI 파손과 시나리오 낡음을 가르는 신호를 새로 만들었습니다. <span class="dim">요소가 이사하면 그리로 가는 링크가 남고, 진짜 파손이면 아무것도 안 남는다</span> — 실패 시점 페이지의 내부 링크를 증거로 수집하고, 판정은 하지 않고 사실만 넘깁니다</span></li>
+        					<li><span class="d">게이트</span><span class="t">한 번도 쓰지 않은 test 83건을 <b>딱 한 번</b> 채점 — 정확도 100%, 위험 방향 오분류 0건, LLM 호출은 3분의 1로 제한(83건 $0.06), 폴백 0건. 네 기준 전부 통과해 자동 조사를 승격했습니다</span></li>
+        				</ul>
+        				<div class="devlog_incident">
+        					<div class="i_label">이 주의 사건</div>
+        					<p>실험대에서 폼을 다른 페이지로 옮기자 에이전트가 <b>&ldquo;실제 UI 파손&rdquo;이라고 확신 높게 오판</b>했습니다. 근거로 &ldquo;이동 흔적이 없다&rdquo;를 들었는데 — 운영에선 그 신호를 <b>애초에 수집한 적이 없었습니다.</b> 값 하나가 두 뜻을 지고 있었습니다. 평가셋에서 <code>None</code>은 &ldquo;찾아봤는데 없었다&rdquo;는 증거였고, 운영에선 &ldquo;찾아보지 않았다&rdquo;였는데, 화면에는 똑같이 &ldquo;흔적 없음&rdquo;으로 나갔습니다.</p>
+        					<p>없는 증거를 인용해 확신하는 것 — 이 도구가 처음부터 하지 않겠다고 못 박은 바로 그 일이었습니다. &ldquo;없음&rdquo;과 &ldquo;모름&rdquo;을 분리하고, 진짜 신호를 수집하는 판독기를 만들고 나서야 두 유형이 각각 맞게 판정됐습니다. <b>같은 실수를 저장 계층에서 한 번 더</b> 했습니다 — 빈 목록이 falsy라 &ldquo;없음&rdquo;이 다시 &ldquo;모름&rdquo;으로 뭉개졌습니다.</p>
+        					<p>합성 평가셋 100%가 증명하지 못한 것을 실험대가 이틀 만에 드러냈습니다. 그래서 승격 기록에는 점수와 함께 <b>이 수치가 무엇이 아닌지</b>도 적었습니다.</p>
         				</div>
         			</div>
 
@@ -190,11 +208,13 @@
         					<tr><td>3주 차 (07.13)</td><td class="num">263</td><td class="num">111</td><td class="num">460</td><td class="num">31</td><td>최초 기획 완성, 검사 100/100</td></tr>
         					<tr><td>4주 차 (07.20)</td><td class="num">310</td><td class="num">137</td><td class="num">511</td><td class="num">32</td><td>Oracle Cloud 이전, 서버비 0원</td></tr>
         					<tr><td>5주 차 (07.24)</td><td class="num">338</td><td class="num">147</td><td class="num">557</td><td class="num">34</td><td>조사 에이전트 도그푸딩 통과</td></tr>
+        					<tr><td>6주 차 (07.27)</td><td class="num">354</td><td class="num">154</td><td class="num">578</td><td class="num">35</td><td>게이트 통과, 자동 조사 승격</td></tr>
         				</tbody>
         			</table>
         		</div>
         		<ul class="devlog_next">
-        			<li><span class="tag">AGENT</span>조사 에이전트 마무리 — 나머지 원인 유형 도그푸딩 → 평가셋 게이트 승격 → 기본 활성화</li>
+        			<li><span class="tag">LIMIT</span>SSL 무효는 운영에서 위조할 수 없어 합성 케이스로만 검증됩니다 — 알려진 한계로 기록해 두었습니다</li>
+        			<li><span class="tag">NEXT</span>실패 지점 페이지의 렌더 상태를 직접 읽는 판독기 — 지금은 링크 흔적으로 우회하고 있습니다</li>
         			<li><span class="tag">HOLD</span>수익화 설계는 v1 완성 상태로 보류 — 플랜 · 결제 구조 · 4주 로드맵</li>
         		</ul>
         	</div>
