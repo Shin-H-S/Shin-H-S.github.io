@@ -103,3 +103,78 @@ h1, h2, h3, h4, h5, h6 { font-family: "Pretendard", "Heebo", sans-serif; }
 @media (max-width: 991px) {
   .banner_btn.btn_resume { margin-left: 8px; }
 }
+
+/* ── 개발일지 (devlog.html) ─────────────────────────────── */
+.devlog_banner {
+  z-index: 1;
+  background: url(../img/banner/home-banner.jpg) no-repeat scroll center center;
+  background-size: cover;
+}
+.devlog_banner .banner_inner { padding: 165px 0 80px; width: 100%; }
+.devlog_banner .dl_label {
+  font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+  color: #8490ff; margin-bottom: 14px;
+}
+.devlog_banner h1 {
+  font-size: 42px; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 18px;
+}
+.devlog_banner h1 .accent { color: #8490ff; }
+.devlog_banner .dl_sub { color: rgba(255, 255, 255, .78); max-width: 620px; margin-bottom: 0; line-height: 1.8; }
+.devlog_banner .dl_sub a { color: #fff; text-decoration: underline; }
+.devlog_stats { display: flex; flex-wrap: wrap; gap: 34px; margin-top: 34px; }
+.devlog_stats .dl_stat b {
+  display: block; font-size: 30px; font-weight: 700; color: #fff; line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+.devlog_stats .dl_stat span { font-size: 13px; color: rgba(255, 255, 255, .65); }
+@media (max-width: 767px) {
+  .devlog_banner .banner_inner { padding: 130px 0 60px; }
+  .devlog_banner h1 { font-size: 30px; }
+  .devlog_stats { gap: 22px; }
+  .devlog_stats .dl_stat b { font-size: 24px; }
+}
+.devlog_area .timeline { max-width: 780px; }
+.devlog_area .timeline_item { padding-bottom: 46px; }
+.devlog_range { font-size: 13px; font-weight: 700; color: #8490ff; margin-bottom: 6px; }
+.devlog_range .commits { color: #999; font-weight: 500; }
+.devlog_area .timeline_item h4 { font-size: 20px; margin-bottom: 10px; }
+.devlog_area .timeline_item > p { margin-bottom: 16px; }
+.devlog_days { list-style: none; margin: 0 0 18px; padding: 0; }
+.devlog_days li {
+  display: flex; gap: 16px; padding: 9px 0; border-top: 1px solid #f0f0f7;
+  font-size: 14px; line-height: 1.75; color: #666;
+}
+.devlog_days li:first-child { border-top: none; }
+.devlog_days .d { flex: 0 0 82px; font-size: 12.5px; font-weight: 700; color: #8490ff; padding-top: 2px; }
+.devlog_days .t b { color: #333; font-weight: 700; }
+.devlog_days .t .dim { color: #999; }
+.devlog_incident {
+  border-left: 3px solid #8490ff; background: #f9f9ff; border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+}
+.devlog_incident .i_label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: #8490ff; margin-bottom: 8px;
+}
+.devlog_incident p { font-size: 14px; line-height: 1.8; color: #666; margin-bottom: 10px; }
+.devlog_incident p:last-child { margin-bottom: 0; }
+.devlog_incident b { color: #333; }
+.devlog_incident code {
+  font-size: 13px; background: #eeeef8; color: #4c5ce0; padding: 1px 6px; border-radius: 3px;
+}
+.devlog_table_wrap { max-width: 780px; margin: 0 auto; overflow-x: auto; border: 1px solid #ececf6; border-radius: 10px; }
+.devlog_table { width: 100%; min-width: 560px; margin: 0; border-collapse: collapse; font-size: 14px; }
+.devlog_table th, .devlog_table td { padding: 12px 18px; border-bottom: 1px solid #f0f0f7; text-align: left; }
+.devlog_table thead th { font-size: 12px; font-weight: 700; color: #999; background: #f9f9ff; white-space: nowrap; }
+.devlog_table td { color: #666; }
+.devlog_table td.num { font-variant-numeric: tabular-nums; }
+.devlog_table tbody tr:last-child td { border-bottom: none; color: #4c5ce0; font-weight: 700; }
+.devlog_next { list-style: none; max-width: 780px; margin: 22px auto 0; padding: 0; }
+.devlog_next li {
+  padding: 12px 0; border-top: 1px solid #f0f0f7; font-size: 14px; line-height: 1.75; color: #666;
+}
+.devlog_next li:first-child { border-top: none; }
+.devlog_next .tag {
+  display: inline-block; min-width: 62px; margin-right: 12px; font-size: 11px; font-weight: 700;
+  letter-spacing: 1px; color: #8490ff;
+}

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="img/favicon.png" type="image/png">
+        <title>개발일지 — AIM 5주의 기록 | 신현수</title>
+        <meta name="description" content="AI 품질 모니터링 서비스 AIM을 기획부터 실서비스 운영까지 완주한 5주의 기록. 저장소 실측(커밋·머지·마이그레이션)으로 재구성한 개발일지입니다.">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="개발일지 — AIM 5주의 기록">
+        <meta property="og:description" content="혼자서 기획부터 실서비스 운영까지. 커밋 338 · 머지 147 · 테스트 557, 그리고 각 주를 정의한 사건들.">
+        <meta property="og:url" content="https://shin-h-s.github.io/devlog.html">
+        <meta property="og:locale" content="ko_KR">
+        <meta property="og:image" content="https://shin-h-s.github.io/img/og-image.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta name="twitter:card" content="summary_large_image">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="vendors/linericon/style.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
+        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+        <link rel="stylesheet" href="vendors/animate-css/animate.css">
+        <link rel="stylesheet" href="vendors/flaticon/flaticon.css">
+        <!-- main css -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/custom.css?v=7">
+    </head>
+    <body>
+
+        <!--================Header Menu Area =================-->
+        <header class="header_area">
+            <div class="main_menu" id="mainNav">
+            	<nav class="navbar navbar-expand-lg navbar-light">
+					<div class="container box_1620">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<a class="navbar-brand logo_h brand-text" href="index.html">fox_shin</a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+							<ul class="nav navbar-nav menu_nav ml-auto">
+								<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+								<li class="nav-item"><a class="nav-link" href="index.html#about">소개</a></li>
+								<li class="nav-item"><a class="nav-link" href="index.html#projects">프로젝트</a></li>
+								<li class="nav-item active"><a class="nav-link" href="devlog.html">개발일지</a></li>
+								<li class="nav-item"><a class="nav-link" href="index.html#career">경력 · 교육</a></li>
+								<li class="nav-item"><a class="nav-link" href="resume.pdf" download="신현수_이력서.pdf">이력서 PDF</a></li>
+							</ul>
+							</div>
+					</div>
+            	</nav>
+            </div>
+        </header>
+        <!--================Header Menu Area =================-->
+
+        <!--================Devlog Banner Area =================-->
+        <section class="devlog_banner">
+            <div class="banner_inner">
+				<div class="container">
+					<div class="dl_label">Devlog · AIM</div>
+					<h1>혼자서 실서비스까지,<br><span class="accent">5주의 기록</span></h1>
+					<p class="dl_sub">AI 품질 모니터링 플랫폼 AIM을 기획부터 운영까지 완주한 과정입니다. 기억이 아니라 저장소 실측 — 커밋 날짜, 머지 이력, 마이그레이션 — 에서 재구성했고, 각 주를 정의한 사건을 함께 남겼습니다. <a href="https://qaaimsync.com" target="_blank" rel="noopener">라이브 서비스 ↗</a> · <a href="https://github.com/Shin-H-S/AIM" target="_blank" rel="noopener">저장소 ↗</a></p>
+					<div class="devlog_stats">
+						<div class="dl_stat"><b>338</b><span>커밋</span></div>
+						<div class="dl_stat"><b>147</b><span>머지</span></div>
+						<div class="dl_stat"><b>557</b><span>테스트 함수</span></div>
+						<div class="dl_stat"><b>34</b><span>DB 마이그레이션</span></div>
+						<div class="dl_stat"><b>₩0</b><span>월 서버비</span></div>
+					</div>
+				</div>
+            </div>
+        </section>
+        <!--================End Devlog Banner Area =================-->
+
+        <!--================Devlog Timeline Area =================-->
+        <section class="latest_blog_area p_120 devlog_area">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>주차별 기록</h2>
+        			<p>커밋 수는 저장소 실측이고, 각 주의 마지막 블록은 그 주를 정의한 사건입니다.</p>
+        		</div>
+        		<div class="timeline">
+
+        			<div class="timeline_item">
+        				<div class="devlog_range">2026.06.23 — 06.29 <span class="commits">· 78 commits</span></div>
+        				<h4>1주 차 — 기반과 첫 스캔</h4>
+        				<p>코드보다 기획 문서를 먼저 썼습니다. 제품 정의, 17단계 MVP 흐름, 완료 정의 15항목, 그리고 &ldquo;안 만들 것&rdquo;(K8s · 마이크로서비스 · 멀티리전)을 명문화한 것이 이후 모든 주의 속도를 만들었습니다.</p>
+        				<ul class="devlog_days">
+        					<li><span class="d">06.23–24</span><span class="t">모노레포 · Docker Compose · CI 골격, 사용자/프로젝트, JWT 인증과 소유권 검사</span></li>
+        					<li><span class="d">06.25</span><span class="t">HTML meta 태그 도메인 소유권 검증 <span class="dim">— 검증 없이는 정기 검사 금지, 악용 방지를 초기 설계에</span></span></li>
+        					<li><span class="d">06.26–27</span><span class="t">검사 상태 기계, 가용성 · SSL 스캔, Lighthouse 연동, 6카테고리 스코어링과 직전 비교의 뼈대</span></li>
+        					<li><span class="d">06.28–29</span><span class="t">Playwright 시나리오 8종 스텝, 실패 스크린샷 · 콘솔 · 네트워크 증거 자동 수집</span></li>
+        				</ul>
+        				<div class="devlog_incident">
+        					<div class="i_label">이 주의 결정</div>
+        					<p>SSRF 방어를 기능이 아니라 <b>제품 요구사항</b>으로 다뤘습니다. DNS 해석 IP 검증, 리다이렉트 재검증, 브라우저 아웃바운드 검증까지 3겹 — &ldquo;사용자 URL로 서버가 요청을 보내는&rdquo; 제품의 숙명이었습니다.</p>
+        				</div>
+        			</div>
+
+        			<div class="timeline_item">
+        				<div class="devlog_range">2026.06.30 — 07.06 <span class="commits">· 108 commits</span></div>
+        				<h4>2주 차 — 측정 위에 판단을 얹다</h4>
+        				<p>가장 커밋이 많았던 주입니다. AI 진단 리포트와 장애 감지 · 알림 파이프라인이 생겼습니다.</p>
+        				<ul class="devlog_days">
+        					<li><span class="d">06.30–07.01</span><span class="t">AI 진단 리포트 <span class="dim">— 결정론 리포트 + LLM 서술, 호출 실패 시 폴백으로 생성 자체는 절대 실패하지 않는 구조</span>, 장애 개폐와 알림</span></li>
+        					<li><span class="d">07.03–04</span><span class="t">알림 이메일 opt-in 전환, 리포트 생성기 추적, 기준점(베이스라인) 지정</span></li>
+        					<li><span class="d">07.05–06</span><span class="t">정기 검사 스케줄러, Lighthouse 개선 기회 Top 5, 운영 배포 준비</span></li>
+        				</ul>
+        				<div class="devlog_incident">
+        					<div class="i_label">이 주의 사건</div>
+        					<p>비동기 경합 — 시나리오 실행이 검사 본체보다 늦게 끝나면 점수 · 비교 · 리포트가 미완성 데이터로 굳는 문제가 있었습니다. 순서를 강제하는 대신 <b>&ldquo;늦게 온 결과가 재계산을 트리거&rdquo;하는 재수렴</b>으로 풀었습니다. 도착 순서와 무관하게 같은 결과로 수렴합니다.</p>
+        				</div>
+        			</div>
+
+        			<div class="timeline_item">
+        				<div class="devlog_range">2026.07.07 — 07.13 <span class="commits">· 89 commits</span></div>
+        				<h4>3주 차 — 실서비스, 그리고 최초 기획 완성</h4>
+        				<p>자체 도메인 HTTPS 운영 전환과 보안 스택, 그리고 마지막 스코어링 축까지. 7월 13일 하루에만 27커밋이었습니다.</p>
+        				<ul class="devlog_days">
+        					<li><span class="d">07.07–08</span><span class="t">점수 산출 근거 저장, HTTPS 전환, 알림 채널 결정 번복을 ADR로 기록</span></li>
+        					<li><span class="d">07.09–10</span><span class="t">배포 훅 토큰(해시만 저장 · 1회 노출), 배포 스크립트와 Discord 배포 요약 <span class="dim">— push부터 검사 · 알림까지 전자동 루프</span></span></li>
+        					<li><span class="d">07.12–13</span><span class="t">보안 4종(비밀번호 재설정 · rate limit · 토큰 폐기 · 시나리오 시크릿), 서비스 유형 프리셋, <b>회귀 안정성 — 최초 기획의 마지막 조각</b>, 3화면 UX 개편</span></li>
+        				</ul>
+        				<div class="devlog_incident">
+        					<div class="i_label">이 주의 사건</div>
+        					<p>비밀번호 재설정 직후 로그인이 401 — JWT <code>iat</code>(초 단위 절사)와 무효화 타임스탬프(마이크로초)의 정밀도 차이로 같은 1초 안에서 새 토큰이 무효 판정됐습니다. 테스트가 잡아낸 실버그였고, <b>서로 다른 시계를 비교할 땐 정밀도부터 맞춘다</b>는 교훈을 남겼습니다.</p>
+        				</div>
+        			</div>
+
+        			<div class="timeline_item">
+        				<div class="devlog_range">2026.07.14 — 07.20 <span class="commits">· 35 commits</span></div>
+        				<h4>4주 차 — 운영 성숙: 비용, 재해 대비, 무료 이전</h4>
+        				<p>커밋 수는 적지만 인프라가 가장 많이 움직인 주입니다.</p>
+        				<ul class="devlog_days">
+        					<li><span class="d">07.14</span><span class="t">빌드 캐시 68GB 발견 · 정리(디스크 76% → 19%), 배포 검사 워밍업, 이상 없는 정기 검사 LLM 생략(호출 ⅔ 절감), VM 다운사이징(<b>월 $140 → $49</b>), 리포트 문구 전면 한글화</span></li>
+        					<li><span class="d">07.15</span><span class="t">오프박스 백업 · 복원 리허설 · 런북, VM 자체 경보, 외부 uptime 모니터 <span class="dim">— 재해 대비 4종 완성</span></span></li>
+        					<li><span class="d">07.17</span><span class="t"><b>GCP → Oracle Cloud 무료 이전</b> — ARM 재빌드, DB 복원, DNS 컷오버. 런북이 그대로 실전 절차가 됐고 서버비가 0원이 됐습니다</span></li>
+        					<li><span class="d">07.18–19</span><span class="t">홈 리디자인, 브랜드 마크 확정, 다크모드 전면 적용</span></li>
+        					<li><span class="d">07.20</span><span class="t">문서 현행화, 콘솔 에러 감점화 <span class="dim">— &ldquo;점수는 후하게, 판정은 엄격하게&rdquo;의 무른 지점 보강</span></span></li>
+        				</ul>
+        				<div class="devlog_incident">
+        					<div class="i_label">이 주의 사건</div>
+        					<p>홈 리디자인 배포가 자기 검사에서 <b>59점 F</b>를 받았습니다 — 시나리오가 옛 로그인 URL을 보고 있었습니다. 게이트 → 장애 감지 → Discord 경보 → 수정 → 99점 복구까지, 도구가 자기 회귀를 잡은 첫 실전 사례였습니다.</p>
+        					<p>그리고 VM 다운사이징 후 Lighthouse 성능이 99 → 86으로 떨어졌는데, 서비스가 아니라 <b>측정기의 CPU</b>가 줄어든 것이었습니다. 절대값이 아니라 추이가 목적임을 재확인했습니다.</p>
+        				</div>
+        			</div>
+
+        			<div class="timeline_item">
+        				<div class="devlog_range">2026.07.21 — 07.24 <span class="commits">· 28 commits · 진행 중</span></div>
+        				<h4>5주 차 — 조사 에이전트</h4>
+        				<p>&ldquo;점수가 떨어졌다&rdquo;에서 <b>&ldquo;왜 떨어졌는지&rdquo;</b>로. 장애가 감지되면 에이전트가 자동으로 조사해 원인을 판정하고 Discord로 보고합니다. 평가셋 없이는 한 줄도 믿지 않는다는 원칙으로, 구현보다 평가 체계를 먼저 만들었습니다.</p>
+        				<ul class="devlog_days">
+        					<li><span class="d">1단계</span><span class="t">근본 원인 7유형 분류 체계, 평가셋 175건(유형당 25건, dev 91 / test 84 분리)과 채점기 — 실제 스캐너 의미론으로 재보정</span></li>
+        					<li><span class="d">2단계</span><span class="t">조사 루프 · 도구 상자 · 트레이스, 결정론 폴백과 신뢰도</span></li>
+        					<li><span class="d">3단계</span><span class="t">라우터 정책, 증거 카드 렌더러, LLM 판단 정책과 에스컬레이션</span></li>
+        					<li><span class="d">4단계</span><span class="t">운영 연결 — DB 도구 상자, 트레이스 저장, 장애 훅, 조사 API · 결과 카드 UI · Discord 요약</span></li>
+        				</ul>
+        				<div class="devlog_incident">
+        					<div class="i_label">이 주의 사건</div>
+        					<p>도그푸딩 통과 — 운영에 지연을 주입해 장애를 일으키자 에이전트가 자동 조사를 돌아 <code>server_slow</code>를 정확히 판정하고 Discord까지 보고했습니다. 그 과정에서 재현 판정 결함 2건을 스스로 드러내 수정했습니다. 남은 것은 나머지 원인 유형 도그푸딩과 게이트 승격입니다.</p>
+        				</div>
+        			</div>
+
+        		</div>
+        	</div>
+        </section>
+        <!--================End Devlog Timeline Area =================-->
+
+        <!--================Devlog Metrics Area =================-->
+        <section class="welcome_area p_120 devlog_area">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>지표 추이</h2>
+        			<p>각 시점의 커밋에서 직접 측정한 값입니다.</p>
+        		</div>
+        		<div class="devlog_table_wrap">
+        			<table class="devlog_table">
+        				<thead>
+        					<tr><th>시점</th><th>커밋</th><th>머지</th><th>테스트</th><th>마이그레이션</th><th>비고</th></tr>
+        				</thead>
+        				<tbody>
+        					<tr><td>3주 차 (07.13)</td><td class="num">263</td><td class="num">111</td><td class="num">460</td><td class="num">31</td><td>최초 기획 완성, 검사 100/100</td></tr>
+        					<tr><td>4주 차 (07.20)</td><td class="num">310</td><td class="num">137</td><td class="num">511</td><td class="num">32</td><td>Oracle Cloud 이전, 서버비 0원</td></tr>
+        					<tr><td>5주 차 (07.24)</td><td class="num">338</td><td class="num">147</td><td class="num">557</td><td class="num">34</td><td>조사 에이전트 도그푸딩 통과</td></tr>
+        				</tbody>
+        			</table>
+        		</div>
+        		<ul class="devlog_next">
+        			<li><span class="tag">AGENT</span>조사 에이전트 마무리 — 나머지 원인 유형 도그푸딩 → 평가셋 게이트 승격 → 기본 활성화</li>
+        			<li><span class="tag">HOLD</span>수익화 설계는 v1 완성 상태로 보류 — 플랜 · 결제 구조 · 4주 로드맵</li>
+        		</ul>
+        	</div>
+        </section>
+        <!--================End Devlog Metrics Area =================-->
+
+        <!--================Footer Area =================-->
+        <footer class="footer_area p_120" id="contact">
+        	<div class="container">
+        		<div class="row footer_inner">
+        			<div class="col-lg-5 col-sm-6">
+        				<aside class="f_widget ab_widget">
+        					<div class="f_title">
+        						<h3>About Me</h3>
+        					</div>
+        					<p>AI 품질 모니터링 서비스 AIM(qaaimsync.com)을 만들고 운영합니다. 이 페이지의 모든 수치는 실측 기록입니다.</p>
+        					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</p>
+        				</aside>
+        			</div>
+        			<div class="col-lg-5 col-sm-6">
+        				<aside class="f_widget news_widget">
+        					<div class="f_title">
+        						<h3>Contact</h3>
+        					</div>
+        					<p>이메일 한 통이면 충분합니다.</p>
+        					<p><a href="mailto:shyunsu3@gmail.com">shyunsu3@gmail.com</a><br>
+        					<a href="https://github.com/Shin-H-S" target="_blank" rel="noopener">github.com/Shin-H-S</a><br>
+        					<a href="https://qaaimsync.com" target="_blank" rel="noopener">qaaimsync.com (AIM)</a><br>
+        					<a href="resume.pdf" download="신현수_이력서.pdf">이력서 PDF 다운로드</a></p>
+        				</aside>
+        			</div>
+        			<div class="col-lg-2">
+        				<aside class="f_widget social_widget">
+        					<div class="f_title">
+        						<h3>Links</h3>
+        					</div>
+        					<p>코드와 서비스는 여기에</p>
+        					<ul class="list">
+        						<li><a href="https://github.com/Shin-H-S" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a></li>
+        						<li><a href="mailto:shyunsu3@gmail.com" aria-label="이메일"><i class="fa fa-envelope-o"></i></a></li>
+        						<li><a href="https://qaaimsync.com" target="_blank" rel="noopener" aria-label="AIM 서비스"><i class="fa fa-globe"></i></a></li>
+
+        					</ul>
+        				</aside>
+        			</div>
+        		</div>
+        	</div>
+        </footer>
+        <!--================End Footer Area =================-->
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/stellar.js"></script>
+        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+        <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+        <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+        <script src="vendors/isotope/isotope-min.js"></script>
+        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+
+        <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+        <script src="vendors/counter-up/jquery.counterup.min.js"></script>
+
+        <script src="js/theme.js"></script>
+    </body>
+</html>
