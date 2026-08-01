@@ -173,8 +173,9 @@
         					<ul class="fbullets">
         						<li>점수·장애 판정은 <b>결정론적 코드</b>로 계산하고 LLM은 근거 서술로 제한해 재현성 확보 — 호출 실패 시 규칙 기반 리포트로 자동 폴백</li>
         						<li>가용성 · 웹 성능 · 사용자 흐름을 한 번에 검사하는 Celery · Redis 비동기 파이프라인, 완료 순서와 무관한 정합성 설계</li>
-        						<li>시작 <span class="metric">3주</span> 차 실서비스 도달 — 현재 커밋 <span class="metric">354</span> · 머지 <span class="metric">154</span> · 테스트 <span class="metric">578</span> (<a href="devlog.html">개발일지</a>)</li>
-        						<li>일일 백업·복원 리허설 런북, GCP → Oracle Cloud 이전으로 실전 재검증 — AIM이 AIM 자신을 6시간 주기로 모니터링</li>
+        						<li>시작 <span class="metric">3주</span> 차 실서비스 도달 — 현재 커밋 <span class="metric">422</span> · 머지 <span class="metric">183</span> · 테스트 <span class="metric">774</span> (<a href="devlog.html">개발일지</a>)</li>
+        						<li>인시던트에 자동으로 붙는 <b>조사 에이전트</b> — 원인 7유형 판별, 격리 실험대의 실제 장애로 <span class="metric">5유형 전부 정판정</span> 검증, 실패 스크린샷을 vision 증거로 판독</li>
+        						<li>3중 감시(메트릭 경보 · VM 헬스 · 외부 프로브)와 백업·복원 리허설 자동 판정 — AIM이 AIM 자신을 1시간 주기로 모니터링</li>
         					</ul>
         					<p class="plinks"><a href="https://qaaimsync.com" target="_blank" rel="noopener">서비스 ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Shin-H-S/AIM" target="_blank" rel="noopener">GitHub ↗</a> &nbsp;·&nbsp; <a href="devlog.html">개발일지 →</a></p>
         				</div>

@@ -5,10 +5,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>개발일지 — AIM 6주의 기록 | 신현수</title>
-        <meta name="description" content="AI 품질 모니터링 서비스 AIM을 기획부터 실서비스 운영까지 완주한 6주의 기록. 저장소 실측(커밋·머지·마이그레이션)으로 재구성한 개발일지입니다.">
+        <title>개발일지 — AIM 7주의 기록 | 신현수</title>
+        <meta name="description" content="AI 품질 모니터링 서비스 AIM을 기획부터 실서비스 운영까지 완주한 7주의 기록. 저장소 실측(커밋·머지·마이그레이션)으로 재구성한 개발일지입니다.">
         <meta property="og:type" content="article">
-        <meta property="og:title" content="개발일지 — AIM 6주의 기록">
+        <meta property="og:title" content="개발일지 — AIM 7주의 기록">
         <meta property="og:description" content="혼자서 기획부터 실서비스 운영까지. 커밋 354 · 머지 154 · 테스트 578, 그리고 각 주를 정의한 사건들.">
         <meta property="og:url" content="https://shin-h-s.github.io/devlog.html">
         <meta property="og:locale" content="ko_KR">
@@ -187,6 +187,24 @@
         				</div>
         			</div>
 
+        			<div class="timeline_item">
+        				<div class="devlog_range">2026.07.28 — 08.01 <span class="commits">· 68 commits</span></div>
+        				<h4>7주 차 — 안전망 위에서 갈아엎고, 실험대가 또 결함을 잡다</h4>
+        				<p>인증 체계를 통째로 바꾸는 주였습니다. 순서가 핵심이었습니다 — <b>깨질 곳을 지켜볼 E2E를 먼저 깔고</b>, 그 위에서 갈아엎었습니다.</p>
+        				<ul class="devlog_days">
+        					<li><span class="d">세션</span><span class="t">액세스 토큰을 localStorage에서 httpOnly 쿠키 + double-submit CSRF로 전환 — XSS 토큰 탈취 표면을 원천 제거. 활동 중인 세션은 서버가 응답에 쿠키를 다시 실어 조용히 연장합니다(sliding session). 미리 깔아 둔 Playwright E2E가 심판 역할을 실제로 했습니다</span></li>
+        					<li><span class="d">감시</span><span class="t">감시를 세 겹으로 — 서비스 메트릭 경보(큐 정체 · <b>스케줄러 심장박동</b> · 인시던트), VM 헬스, 그리고 VM이 통째로 죽으면 유일하게 살아남는 GitHub Actions 외부 프로브. 심장박동은 &ldquo;아무 일도 안 일어나는 형태의 장애&rdquo;를 잡기 위한 것입니다</span></li>
+        					<li><span class="d">백업</span><span class="t">복원 리허설을 원커맨드 · 자동 판정으로 만들어 실백업으로 합격 확인, 주간 부트 볼륨 백업과 시크릿 번들 암호화 오프박스까지 — <span class="dim">복원해 본 적 없는 백업은 백업이 아니다</span></span></li>
+        					<li><span class="d">에이전트</span><span class="t">실패 스크린샷을 판별 호출에 vision 증거로 동봉(별도 전처리 호출 없이 — 예산 계측이 공짜가 되는 설계), ssl 전용 실험대를 만들어 <b>5개 유형 전부를 실제 장애로 정판정 검증 완료</b></span></li>
+        				</ul>
+        				<div class="devlog_incident">
+        					<div class="i_label">이 주의 사건</div>
+        					<p>6주 차에 &ldquo;SSL 무효는 운영에서 위조할 수 없다&rdquo;고 한계로 적어 두었습니다. 그 한계를 지우려고 인증서를 고의로 깨뜨리는 실험대를 만들었는데 — 첫 가동에서 에이전트가 <b>&ldquo;서비스 다운&rdquo;이라고 오판</b>했습니다.</p>
+        					<p>파 보니 에이전트는 무죄였습니다. 인증서가 깨지면 가용성 요청 자체가 TLS에서 실패하는데, 검사 파이프라인이 <b>&ldquo;가용성 통과 시에만 SSL 검사&rdquo;</b>로 짜여 있었습니다. SSL 검사가 존재하는 이유인 바로 그 상황에서 SSL 검사가 실행되지 않는 구조 — 증거가 비니 규칙은 정확하게 틀린 결론을 냈습니다. 게이트를 걷어내고 &ldquo;확인 불가(다운)&rdquo;와 &ldquo;무효(인증서 문제)&rdquo;를 구분하게 고치자 정판정이 나왔습니다.</p>
+        					<p>합성 평가셋이 못 잡는 결함을 실험대가 잡은 두 번째 사례입니다. 평가셋의 SSL 케이스는 &ldquo;증거가 기록돼 있다&rdquo;를 전제하고 있었고, 그 전제 자체가 틀려 있었습니다.</p>
+        				</div>
+        			</div>
+
         		</div>
         	</div>
         </section>
@@ -209,12 +227,13 @@
         					<tr><td>4주 차 (07.20)</td><td class="num">310</td><td class="num">137</td><td class="num">511</td><td class="num">32</td><td>Oracle Cloud 이전, 서버비 0원</td></tr>
         					<tr><td>5주 차 (07.24)</td><td class="num">338</td><td class="num">147</td><td class="num">557</td><td class="num">34</td><td>조사 에이전트 도그푸딩 통과</td></tr>
         					<tr><td>6주 차 (07.27)</td><td class="num">354</td><td class="num">154</td><td class="num">578</td><td class="num">35</td><td>게이트 통과, 자동 조사 승격</td></tr>
+        					<tr><td>7주 차 (08.01)</td><td class="num">422</td><td class="num">183</td><td class="num">774</td><td class="num">38</td><td>쿠키 인증 전환, 5유형 실장애 검증</td></tr>
         				</tbody>
         			</table>
         		</div>
         		<ul class="devlog_next">
-        			<li><span class="tag">LIMIT</span>SSL 무효는 운영에서 위조할 수 없어 합성 케이스로만 검증됩니다 — 알려진 한계로 기록해 두었습니다</li>
-        			<li><span class="tag">NEXT</span>실패 지점 페이지의 렌더 상태를 직접 읽는 판독기 — 지금은 링크 흔적으로 우회하고 있습니다</li>
+        			<li><span class="tag">NEXT</span>CSP nonce 전환 — 쿠키 전환으로 토큰 탈취는 막았고, 인라인 스크립트 실행 차단이 마지막 층입니다</li>
+        			<li><span class="tag">NEXT</span>운영자 경보 스코핑 — 외부 사용자 인시던트에 에지 트리거가 붙들리는 문제를 실측으로 확인해 두었습니다</li>
         			<li><span class="tag">HOLD</span>수익화 설계는 v1 완성 상태로 보류 — 플랜 · 결제 구조 · 4주 로드맵</li>
         		</ul>
         	</div>
