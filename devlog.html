@@ -5,10 +5,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>개발일지 — AIM 7주의 기록 | 신현수</title>
-        <meta name="description" content="AI 품질 모니터링 서비스 AIM을 기획부터 실서비스 운영까지 완주한 7주의 기록. 저장소 실측(커밋·머지·마이그레이션)으로 재구성한 개발일지입니다.">
+        <title>개발일지 — AIM 8주의 기록 | 신현수</title>
+        <meta name="description" content="AI 품질 모니터링 서비스 AIM을 기획부터 실서비스 운영까지 완주한 8주의 기록. 저장소 실측(커밋·머지·마이그레이션)으로 재구성한 개발일지입니다.">
         <meta property="og:type" content="article">
-        <meta property="og:title" content="개발일지 — AIM 7주의 기록">
+        <meta property="og:title" content="개발일지 — AIM 8주의 기록">
         <meta property="og:description" content="혼자서 기획부터 실서비스 운영까지. 커밋 354 · 머지 154 · 테스트 578, 그리고 각 주를 정의한 사건들.">
         <meta property="og:url" content="https://shin-h-s.github.io/devlog.html">
         <meta property="og:locale" content="ko_KR">
@@ -205,6 +205,23 @@
         				</div>
         			</div>
 
+        			<div class="timeline_item">
+        				<div class="devlog_range">2026.08.02 <span class="commits">· 10 commits</span></div>
+        				<h4>8주 차 — 하루의 리디자인, 채점자는 제품 자신</h4>
+        				<p>기능 완성기가 끝나 화면에 투자한 날입니다. 아침에 기획을 쓰고, 세 단계로 나눠 저녁까지 전부 운영에 올렸습니다. 정의는 한 문장 — <b>&ldquo;측정 보고서를 판정 관제판으로&rdquo;</b>. 색을 바꾸는 게 아니라 정보 위계를 다시 세우는 일이었습니다.</p>
+        				<ul class="devlog_days">
+        					<li><span class="d">판정</span><span class="t">모든 화면의 첫 블록이 &ldquo;배포해도 되는가&rdquo;에 답하게 — 결과 화면 판정 헤더(에이전트 결론 병합), AI 진단의 <b>결론 · 원인 · 조치 3단 구조화</b>. 스키마는 안 바꾸고 요약의 서식만 계약으로 만들어, 운영 LLM이 그 서식을 정확히 따르는 것까지 실검증했습니다</span></li>
+        					<li><span class="d">관제판</span><span class="t">대시보드의 통계 4장(평시 0의 나열)을 <b>&ldquo;지금 조치 필요&rdquo;</b> 스트립으로 — 인시던트 · 검사 실패 · 인증 대기가 심각도순으로 뜨고 각 칩이 해당 화면으로 직행합니다. 비활성 &ldquo;검증 필요&rdquo; 버튼 같은 막다른 길은 전부 다음 행동으로 교체</span></li>
+        					<li><span class="d">타임라인</span><span class="t">인시던트를 알림 목록이 아니라 <b>생애</b>로 — 발생 → 에이전트 조사(원인 · 조치) → 해소가 한 카드에서 완결되고, 조사 피드백을 이 화면으로 승격해 평가 루프의 입력이 흐르게 했습니다</span></li>
+        					<li><span class="d">검증</span><span class="t">미리 깔아 둔 E2E가 세 단계 내내 심판을 섰고, 각 배포의 합격 판정은 배포 훅이 트리거하는 자기 검사가 내렸습니다</span></li>
+        				</ul>
+        				<div class="devlog_incident">
+        					<div class="i_label">이 주의 사건</div>
+        					<p>리디자인의 정량 목표를 &ldquo;접근성 96점 이상&rdquo;으로 걸었습니다. 접근성을 채점해 주는 서비스가 자기 접근성 93점인 것은 서사의 구멍이었으니까요. 감점 사유는 어디서 얻었나 — <b>AIM이 AIM을 검사한 Lighthouse 원본</b>에서 꺼냈습니다.</p>
+        					<p>대비가 모자란 버튼과 어긋난 제목 순서를 고치고 배포하면, 배포 훅이 자기 검사를 돌리고, 그 점수가 수선의 합격 여부를 판정합니다. 이 루프를 두 바퀴 돌아 <b>93 → 95 → 100</b>. 목표는 96이었는데 만점이 나왔습니다. 제품이 자기 자신의 리디자인을 채점한 셈입니다.</p>
+        				</div>
+        			</div>
+
         		</div>
         	</div>
         </section>
@@ -228,6 +245,7 @@
         					<tr><td>5주 차 (07.24)</td><td class="num">338</td><td class="num">147</td><td class="num">557</td><td class="num">34</td><td>조사 에이전트 도그푸딩 통과</td></tr>
         					<tr><td>6주 차 (07.27)</td><td class="num">354</td><td class="num">154</td><td class="num">578</td><td class="num">35</td><td>게이트 통과, 자동 조사 승격</td></tr>
         					<tr><td>7주 차 (08.01)</td><td class="num">422</td><td class="num">183</td><td class="num">774</td><td class="num">38</td><td>쿠키 인증 전환, 5유형 실장애 검증</td></tr>
+        					<tr><td>8주 차 (08.02)</td><td class="num">432</td><td class="num">187</td><td class="num">778</td><td class="num">38</td><td>판정 중심 리디자인, 자기 접근성 100</td></tr>
         				</tbody>
         			</table>
         		</div>
